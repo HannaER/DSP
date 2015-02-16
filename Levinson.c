@@ -4,23 +4,25 @@
 sequence R of length P+1 and return the autocorrelation coefficients
  a and reflection coefficients K. Autocorrelationen beräknar vi mha 
  DSP functionen autocorr, input is the input signal i ett block om */
+ #define samples	9
  
-void LevinsonRecursion(int P, double *input[], double *A, double *K)
+void levinson(int P, double *input, double *A, double *K)
 {
-	int samples = 160;//längden av blocken
+	
 	double R[P];
 	autocorr(R, input, samples, P);
     double Am1[62];
 
-    if(R[0]==0.0) { 
-        for(unsigned int i=1; i<=P; i++) 
+    if(R[0]==0.0) {
+    	int i; 
+        for(i=1; i<=P; i++) 
         {
             K[i]=0.0; 
             A[i]=0.0;
         }}
     else {
         double km,Em1,Em;
-        unsigned int k,s,m;
+        int k,s,m;
         for (k=0;k<=P;k++){
             A[0]=0;
             Am1[0]=0; }
@@ -34,10 +36,10 @@ void LevinsonRecursion(int P, double *input[], double *A, double *K)
             for (k=1;k<=m-1;k++)            //for k=2:m-1
                 err += Am1[k]*R[m-k];        // err = err + am1(k)*R(m-k+1);
             km = (R[m]-err)/Em1;            //km=(R(m)-err)/Em1;
-            K[m-1] = -float(km);
-            A[m]=(float)km;                        //am(m)=km;
+            K[m-1] = -((double) km);
+            A[m]=(double) km;                        //am(m)=km;
             for (k=1;k<=m-1;k++)            //for k=2:m-1
-                A[k]=float(Am1[k]-km*Am1[m-k]);  // am(k)=am1(k)-km*am1(m-k+1);
+                A[k]= (double) (Am1[k]-km*Am1[m-k]);  // am(k)=am1(k)-km*am1(m-k+1);
             Em=(1-km*km)*Em1;                //Em=(1-km*km)*Em1;
             for(s=0;s<=P;s++)                //for s=1:N+1
                 Am1[s] = A[s];                // am1(s) = am(s)
