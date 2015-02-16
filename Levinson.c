@@ -6,11 +6,9 @@ sequence R of length P+1 and return the autocorrelation coefficients
  DSP functionen autocorr, input is the input signal i ett block om */
  #define samples	9
  
-void levinson(int P, double *input, double *A, double *K)
+void levinson(int P, double *input, double *A, double *K, double *R)
 {
-	
-	double R[P];
-	autocorr(R, input, samples, P);
+
     double Am1[62];
 
     if(R[0]==0.0) {

@@ -46,7 +46,7 @@ Debug/Levinson.doj :Levinson.c $(VDSP)/212xx/include/stats.h
 	@echo ".\Levinson.c"
 	$(VDSP)/cc21k.exe -c .\Levinson.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\Levinson.doj -MM
 
-Debug/speechrecognition.doj :speechrecognition.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h Levinson.c $(VDSP)/212xx/include/stats.h 
+Debug/speechrecognition.doj :speechrecognition.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h Levinson.h $(VDSP)/212xx/include/stats.h 
 	@echo ".\speechrecognition.c"
 	$(VDSP)/cc21k.exe -c .\speechrecognition.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\speechrecognition.doj -MM
 
