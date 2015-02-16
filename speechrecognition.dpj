@@ -69,7 +69,11 @@
 	<folders>
 		<folder name="Header Files" ext=".h,.hpp,.hxx">
 			<files>
+				<file name=".\constants.h">
+				</file>
 				<file name="C:\Downloads\dtlab\Downloads\framework\framework.h">
+				</file>
+				<file name=".\Levinson.h">
 				</file>
 			</files>
 		</folder>

@@ -42,7 +42,7 @@ Debug/framework.doj :framework.c $(VDSP)/212xx/include/processor_include.h $(VDS
 	@echo ".\framework.c"
 	$(VDSP)/cc21k.exe -c .\framework.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\framework.doj -MM
 
-Debug/Levinson.doj :Levinson.c $(VDSP)/212xx/include/stats.h 
+Debug/Levinson.doj :Levinson.c $(VDSP)/212xx/include/stats.h constants.h 
 	@echo ".\Levinson.c"
 	$(VDSP)/cc21k.exe -c .\Levinson.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\Levinson.doj -MM
 
