@@ -47,3 +47,9 @@ filter(int ord, float *a, float *b, int np, float *x, float *y)
 #define ORDER 3
 #define NP 1001
 
+/* end of filter.c */
+
+
+//function output
+
+

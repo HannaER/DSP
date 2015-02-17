@@ -1,8 +1,8 @@
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Analog Devices/VisualDSP 5.0/System/linker_log.xsl"?>
-<DOCUMENT gen_time='Tue Feb 17 14:30:25 2015
+<DOCUMENT gen_time='Tue Feb 17 15:35:56 2015
 '>
-<MSG id='02B23960' mid='li1021' type='Error' >
+<MSG id='02A34AA0' mid='li1021' type='Error' >
 <TEXT><![CDATA[The following symbols referenced in processor 'p0' could not be resolved:
         'close [_close]' referenced from '.\Debug\filter.doj']]></TEXT>
 </MSG>

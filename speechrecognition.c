@@ -22,6 +22,6 @@ int main( void )
 	for(i = 0; i<K_LENGTH; ++i){
 		printf("%f \n", K[i]); 
 	}
-
+	
 	return 0;
 }
