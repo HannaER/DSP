@@ -1,10 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Analog Devices/VisualDSP 5.0/System/linker_log.xsl"?>
-<DOCUMENT gen_time='Mon Feb 16 14:26:54 2015
+<DOCUMENT gen_time='Tue Feb 17 14:30:25 2015
 '>
-<MSG id='0265C758' mid='li1050' type='Error' >
-<TEXT><![CDATA['_levinson' ('levinson'): Multiply defined symbol in processor 'p0'.
-        Initial definition:     '.\Debug\Levinson.doj'
-        Attempted redefinition: '.\Debug\speechrecognition.doj']]></TEXT>
+<MSG id='02B23960' mid='li1021' type='Error' >
+<TEXT><![CDATA[The following symbols referenced in processor 'p0' could not be resolved:
+        'close [_close]' referenced from '.\Debug\filter.doj']]></TEXT>
 </MSG>
 </DOCUMENT>

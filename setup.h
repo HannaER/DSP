@@ -1,9 +1,8 @@
 #ifndef SETUP
-#define SETUP
 
 #include "database.h"
 
-#define SETUP_LIGHTS	63
+#define SETUP_LEDS	63
 
 database_t* setup(void);
 
