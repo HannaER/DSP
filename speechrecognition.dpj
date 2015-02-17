@@ -71,9 +71,13 @@
 			<files>
 				<file name=".\constants.h">
 				</file>
+				<file name=".\database.h">
+				</file>
 				<file name="C:\Downloads\dtlab\Downloads\framework\framework.h">
 				</file>
 				<file name=".\Levinson.h">
+				</file>
+				<file name=".\setup.h">
 				</file>
 			</files>
 		</folder>
@@ -98,6 +102,22 @@
 					</file-configurations>
 				</file>
 				<file name=".\Levinson.c">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+				<file name=".\setup.c">
 					<file-configurations>
 						<file-configuration name="Debug">
 							<excluded-flag value="no"/>
