@@ -62,7 +62,7 @@ Debug/setup.doj :setup.c setup.h database.h $(VDSP)/212xx/include/stdio.h $(VDSP
 	@echo ".\setup.c"
 	$(VDSP)/cc21k.exe -c .\setup.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\setup.doj -MM
 
-Debug/speechrecognition.doj :speechrecognition.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h Levinson.h constants.h getX.h $(VDSP)/212xx/include/stats.h $(VDSP)/212xx/include/filters.h $(VDSP)/212xx/include/complex.h 
+Debug/speechrecognition.doj :speechrecognition.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h Levinson.h constants.h getX.h $(VDSP)/212xx/include/stats.h $(VDSP)/212xx/include/filter.h $(VDSP)/212xx/include/complex.h 
 	@echo ".\speechrecognition.c"
 	$(VDSP)/cc21k.exe -c .\speechrecognition.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\speechrecognition.doj -MM
 
