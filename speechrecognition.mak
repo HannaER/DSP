@@ -18,7 +18,7 @@
 # other than the host that created it and VisualDSP++ may be installed
 # in a different directory.
 
-ADI_DSP=C:\Program Files (x86)\Analog Devices\VisualDSP 5.0
+ADI_DSP=C:\Program Files (x86)\Analog Devices\VisualDSP 5.1
 
 
 # $VDSP is a gmake-friendly version of ADI_DIR
@@ -38,7 +38,7 @@ ifeq ($(MAKECMDGOALS),speechrecognition_Debug)
 
 speechrecognition_Debug : ./Debug/speechrecognition.dxe 
 
-Debug/filter.doj :filter.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h 
+./Debug/filter.doj :filter.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h 
 	@echo ".\filter.c"
 	$(VDSP)/cc21k.exe -c .\filter.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\filter.doj -MM
 
@@ -50,11 +50,11 @@ Debug/Levinson.doj :Levinson.c $(VDSP)/212xx/include/stats.h constants.h
 	@echo ".\Levinson.c"
 	$(VDSP)/cc21k.exe -c .\Levinson.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\Levinson.doj -MM
 
-Debug/main.doj :main.c 
+./Debug/main.doj :main.c 
 	@echo ".\main.c"
 	$(VDSP)/cc21k.exe -c .\main.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\main.doj -MM
 
-Debug/setup.doj :setup.c setup.h database.h $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h $(VDSP)/212xx/include/stdlib.h framework.h 
+./Debug/setup.doj :setup.c setup.h database.h $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h $(VDSP)/212xx/include/stdlib.h framework.h 
 	@echo ".\setup.c"
 	$(VDSP)/cc21k.exe -c .\setup.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\setup.doj -MM
 
@@ -62,20 +62,20 @@ Debug/speechrecognition.doj :speechrecognition.c $(VDSP)/212xx/include/stdio.h $
 	@echo ".\speechrecognition.c"
 	$(VDSP)/cc21k.exe -c .\speechrecognition.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\speechrecognition.doj -MM
 
-./Debug/speechrecognition.dxe :$(VDSP)/212xx/ldf/ADSP-21262.LDF $(VDSP)/212xx/lib/2126x_rev_0.0/262_hdr.doj ./Debug/filter.doj ./Debug/framework.doj ./Debug/Levinson.doj ./Debug/main.doj ./Debug/setup.doj ./Debug/speechrecognition.doj $(VDSP)/212xx/lib/2126x_rev_0.0/libc26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libio.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libdsp26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libcpp.dlb 
+./Debug/speechrecognition.dxe :$(VDSP)/212xx/ldf/ADSP-21262.LDF $(VDSP)/212xx/lib/2126x_rev_0.0/262_hdr.doj ./Debug/framework.doj ./Debug/Levinson.doj ./Debug/speechrecognition.doj $(VDSP)/212xx/lib/2126x_rev_0.0/libc26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libio.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libdsp26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libcpp.dlb 
 	@echo "Linking..."
-	$(VDSP)/cc21k.exe .\Debug\filter.doj .\Debug\framework.doj .\Debug\Levinson.doj .\Debug\main.doj .\Debug\setup.doj .\Debug\speechrecognition.doj -L .\Debug -add-debug-libpaths -flags-link -od,.\Debug -o .\Debug\speechrecognition.dxe -proc ADSP-21262 -MM
+	$(VDSP)/cc21k.exe .\Debug\framework.doj .\Debug\Levinson.doj .\Debug\speechrecognition.doj -L .\Debug -add-debug-libpaths -flags-link -od,.\Debug -o .\Debug\speechrecognition.dxe -proc ADSP-21262 -MM
 
 endif
 
 ifeq ($(MAKECMDGOALS),speechrecognition_Debug_clean)
 
 speechrecognition_Debug_clean:
-	-$(RM) "Debug\filter.doj"
+	-$(RM) ".\Debug\filter.doj"
 	-$(RM) "Debug\framework.doj"
 	-$(RM) "Debug\Levinson.doj"
-	-$(RM) "Debug\main.doj"
-	-$(RM) "Debug\setup.doj"
+	-$(RM) ".\Debug\main.doj"
+	-$(RM) ".\Debug\setup.doj"
 	-$(RM) "Debug\speechrecognition.doj"
 	-$(RM) ".\Debug\speechrecognition.dxe"
 	-$(RM) ".\Debug\*.ipa"
