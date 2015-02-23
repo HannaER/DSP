@@ -11,21 +11,8 @@
 
 
 #define SAMPLES	901 // length of x
-#define SECTIONS 4 	// Fett oklart
+#define SECTIONS 4 	// oklart
 
-int main( void )
-
-{
-	
-	//Testar iir --> fft --> plotta
-	//iir
-	double* input;
-	
-	get_x(&input); // add input
-/*	int i ;
-	for (i = 0; i <= 4; i++){
-		printf("input[%d] = %f \n", i, input[i]);
-	}*/
 	const struct{
 		float a0;
 		float a1;
@@ -38,9 +25,23 @@ int main( void )
 		float b2;
 	}B_coeffs[SECTIONS];
 	
-	float  coeffs[4*SECTIONS];
-	//float input[SAMPLES], output[SAMPLES];
-	float output[SAMPLES];
+	float pm coeffs[4*SECTIONS];
+
+int main( void )
+
+{
+	
+	//Testar iir --> fft --> plotta
+	//iir
+	double* x;
+	
+	get_x(&x); // add input
+/*	int i ;
+	for (i = 0; i <= 4; i++){
+		printf("x[%d] = %f \n", i, x[i]);
+	}*/
+
+	float input[SAMPLES], output[SAMPLES];
 	float state[2*SECTIONS + 1];
 	float scale;
 	float a0, a1, a2;
@@ -48,8 +49,8 @@ int main( void )
 	int i; 
 	
 	scale = 1.0;
-	/*
 	
+	/*
 	for (i = 0; i < SECTIONS; i++){
 		a0 = A_coeffs[i].a0;
 		a1 = A_coeffs[i].a1;	
