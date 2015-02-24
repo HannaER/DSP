@@ -1,9 +1,9 @@
 <?xml version="1.0" standalone="no"?>
-<?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Analog Devices/VisualDSP 5.0/System/linker_log.xsl"?>
-<DOCUMENT gen_time='Tue Feb 17 15:35:56 2015
+<?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Analog Devices/VisualDSP 5.1/System/linker_log.xsl"?>
+<DOCUMENT gen_time='Tue Feb 24 16:15:39 2015
 '>
-<MSG id='02A34AA0' mid='li1021' type='Error' >
+<MSG id='028BEC18' mid='li1021' type='Error' >
 <TEXT><![CDATA[The following symbols referenced in processor 'p0' could not be resolved:
-        'close [_close]' referenced from '.\Debug\filter.doj']]></TEXT>
+        'pre_emph [_pre_emph]' referenced from '.\Debug\speechrecognition.doj']]></TEXT>
 </MSG>
 </DOCUMENT>

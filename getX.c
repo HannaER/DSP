@@ -5,10 +5,10 @@
 
 #define LENGTH 901
 
-void get_x(double** input)
+void get_x(float** input)
 {
 	
-	double * x = malloc( LENGTH * sizeof(double));
+	float * x = malloc( LENGTH * sizeof(float));
 	if(x == NULL){
 		exit(1);
 	}

@@ -73,11 +73,17 @@
 				</file>
 				<file name=".\database.h">
 				</file>
+				<file name=".\fft_.h">
+				</file>
 				<file name=".\framework.h">
 				</file>
 				<file name=".\getX.h">
 				</file>
 				<file name=".\Levinson.h">
+				</file>
+				<file name=".\pre_emph.h">
+				</file>
+				<file name=".\rm_noise.h">
 				</file>
 				<file name=".\setup.h">
 				</file>
@@ -87,6 +93,22 @@
 		</folder>
 		<folder name="Source Files" ext=".c,.cpp,.cxx,.asm,.dsp,.s">
 			<files>
+				<file name=".\fft_.c">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
 				<file name=".\filter.c">
 					<file-configurations>
 						<file-configuration name="Debug">
@@ -152,6 +174,38 @@
 					</file-configurations>
 				</file>
 				<file name=".\main.c">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+				<file name=".\pre_emph.c">
+					<file-configurations>
+						<file-configuration name="Debug">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Debug</intermediate-dir>
+							<output-dir>.\Debug</output-dir>
+						</file-configuration>
+						<file-configuration name="Release">
+							<excluded-flag value="no"/>
+							<build-with-flag value="project"/>
+							<intermediate-dir>.\Release</intermediate-dir>
+							<output-dir>.\Release</output-dir>
+						</file-configuration>
+					</file-configurations>
+				</file>
+				<file name=".\rm_noise.c">
 					<file-configurations>
 						<file-configuration name="Debug">
 							<excluded-flag value="no"/>
