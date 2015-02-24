@@ -33,7 +33,11 @@ int main( void )
 	get_x(&x); // add input
 
 	rm_noise(&x, &y); // notch filter
-
+	int i;
+	for(i =0; i< 10;i++){
+		printf("%f \n", y[i]);
+	}
+	printf("i fir:\n");
 	
 	//fft
 	
