@@ -1,3 +1,4 @@
+
 /*****************************************************************************
  * speechrecognition.c
  *****************************************************************************/
@@ -14,7 +15,9 @@
 #include <complex.h>
 
 
-
+float y[901];
+float x[901];
+float z[901];
 
 
 int main( void )
@@ -23,29 +26,16 @@ int main( void )
 	
 	//Testar iir --> fft --> plotta
 	//iir
-	float* x; //pointer to input
-	float* y = malloc( 901 * sizeof(float)); 
-	float* z = malloc( 901 * sizeof(float));
-	
-	if(y == NULL){
-		exit(1);
-	} 
-	get_x(&x); // add input
+	 
+	get_x(x); // add input
 
-	rm_noise(&x, &y); // notch filter
-	int i;
-	for(i =0; i< 10;i++){
-		printf("%f \n", y[i]);
-	}
-	printf("i fir:\n");
+	rm_noise(x, y); // notch filter
 	
 	//fft
 	
 	//plotta
-	
-	
-	//pre_emph == fir filter
-	pre_emph(&y, &z);
+		
+	pre_emph(y, z); //pre_emph == fir filter
 	
 	//Testar levinson och autocorr
 	/*

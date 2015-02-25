@@ -1,5 +1,5 @@
 #ifndef pre_emph
 
-void pre_emph(float** x, float** y);
+void pre_emph(float* input, float* output);
 
 #endif
