@@ -9,6 +9,7 @@
 #include "constants.h"
 #include "rm_noise.h"
 #include "pre_emph.h"
+#include "level_detect.h"
 #include "fft_.h"
 #include "getX.h"
 #include <stats.h>
@@ -19,11 +20,17 @@ float y[901];
 float x[901];
 float z[901];
 
+struct block_t{
+	float reflect[N_REFLEC]; // reflektionskoefficienterna
+	float energy; // normen
+};
+
 
 int main( void )
 
 {
-	
+	// INNAN RUN BÖRJAR: räkna ut treshold och deklarera!
+	block_t[N_BLOCKS + 3] record;
 	//Testar iir --> fft --> plotta
 	//iir
 	 
@@ -36,6 +43,10 @@ int main( void )
 	//plotta
 		
 	pre_emph(y, z); //pre_emph == fir filter
+	
+	
+	
+	
 	
 	//Testar levinson och autocorr
 	/*
