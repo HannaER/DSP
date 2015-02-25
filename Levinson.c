@@ -15,14 +15,14 @@ void levinson(double *R, double *A, double *K)
 
     if(R[0]==0.0) {
     	int i; 
-        for(i=1; i<=K_LENGTH; i++){
+        for(i=1; i<=N_REFLEC; i++){
             K[i]=0.0; 
             A[i]=0.0;
         }
     } else {
         double km, Em1, Em;
         int k, s, m;
-        for (k=0; k <= K_LENGTH; k++){
+        for (k=0; k <= N_REFLEC; k++){
             A[0] = 0;
             Am1[0] = 0; 
         }
@@ -32,7 +32,7 @@ void levinson(double *R, double *A, double *K)
         km = 0;
         Em1 = R[0];
         
-        for (m=1; m <= K_LENGTH; m++)               //m=2:N+1
+        for (m=1; m <= N_REFLEC; m++)               //m=2:N+1
         {
             double err = 0.0f;                    	//err = 0;
             for (k = 1; k <= m-1; k++){            	//for k=2:m-1
@@ -47,7 +47,7 @@ void levinson(double *R, double *A, double *K)
             }
               										// am(k)=am1(k)-km*am1(m-k+1);
             Em=(1-km*km)*Em1;                		//Em=(1-km*km)*Em1;
-            for(s=0;s<= K_LENGTH;s++){              //for s=1:N+1
+            for(s=0;s<= N_REFLEC;s++){              //for s=1:N+1
                 Am1[s] = A[s];                		// am1(s) = am(s)
         	}
             Em1 = Em;                        		//Em1 = Em;
