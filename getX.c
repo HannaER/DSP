@@ -3,15 +3,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define LENGTH 901
+//#define LENGTH 901
 
-void get_x(float** input)
+void get_x(float* x)
 {
 	
-	float * x = malloc( LENGTH * sizeof(float));
+	/*float * x = malloc( LENGTH * sizeof(float));
 	if(x == NULL){
 		exit(1);
-	}
+	}*/
 	x[0]=0.0027771; 
 x[1]=-0.0019836; 
 x[2]=0.0041809; 
@@ -915,7 +915,7 @@ x[899]=-0.12939;
 x[900]=-0.17355;
 
 	
-	*input = x;
+//	*input = x;
 	
 
 	return;

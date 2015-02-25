@@ -19,7 +19,7 @@ const struct{
 float pm coeffs[4*SECTIONS];
 
 
-void rm_noise(float** x, float** output)
+void rm_noise(float* x, float* output)
 {
 	float state[2*SECTIONS + 1];
 	float scale;
@@ -45,7 +45,7 @@ void rm_noise(float** x, float** output)
 	for(i = 0;i < 2*SECTIONS; i++){
 		state[i] = 0;			
 	}	
-	iir(*x, *output, coeffs, state, SAMPLES, SECTIONS);	
+	iir(x, output, coeffs, state, SAMPLES, SECTIONS);	
 	
 	for(i = 0; i < SAMPLES;i++){
 		//y[i] = y[i]*scale;

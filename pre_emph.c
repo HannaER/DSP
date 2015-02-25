@@ -6,7 +6,7 @@
 
 float pm fircoeffs[TAPS] = {-0.97, 1};
 
-void pre_emph(float** x, float** y){
+void pre_emph(float* input, float* output){
 	
 	/* coeffs array must be */
 	/* initialized and in PM memory */
@@ -15,9 +15,6 @@ void pre_emph(float** x, float** y){
 	for (i = 0; i < TAPS+1; i++){
 		firstate[i] = 0; /* initialize state array */
 	}
-	fir(*x, *y, fircoeffs, firstate, SAMPLES, TAPS);
-	for(i = 0; i< SAMPLES; i++){
-		printf("%f \n" , y[i]);
-	}
+	fir(input, output, fircoeffs, firstate, SAMPLES, TAPS);
 	
 }
