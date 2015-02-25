@@ -16,7 +16,8 @@
 //number of block of one recording.
 #define N_BLOCKS        ( (Fs * REC_TIME)/(BLOCK_LENGTH - OVERLAP)  )
 
-
+//number of reflection coefficients
+#define N_REFLEC        10
 
 //Isn´t useful yet
 #define THRESHOLD       0.05
