@@ -30,3 +30,12 @@ int poll(float* blocks){
 	return length;
 }
 
+void print(){
+	for (int i = 0; i < length; ++i)
+	{
+		for (int j = 0; j < BLOCK_LENGTH; ++j)
+		{
+			printf ("%f \n", blocks[i][j]);
+		}
+	}
+}

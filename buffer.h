@@ -8,8 +8,9 @@
 
 void put(float* block);
 
-void poll(float* blocks);
+int poll(float* blocks);
 
+void print();
 
 #endif
 
