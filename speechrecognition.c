@@ -30,19 +30,35 @@ int main( void )
 
 {
 	// INNAN RUN BÖRJAR: räkna ut treshold och deklarera!
-	block_t[N_BLOCKS + 3] record;
-	//Testar iir --> fft --> plotta
-	//iir
-	 
+	
+	
+	
+	
+	
+	block_t[N_BLOCKS + 3] record; // lista med structs som är inspelningen
+
 	get_x(x); // add input
 
 	rm_noise(x, y); // notch filter
-	
-	//fft
-	
-	//plotta
 		
 	pre_emph(y, z); //pre_emph == fir filter
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

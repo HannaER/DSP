@@ -7,7 +7,7 @@
 // input is a vector of length BLOCK_LENGTH consisting of the recent samples
 int level_detect(float* input ){ 
 	static int counter = 0;
-	static int first = 0;
+	static int block = 1;
 	static int threshold = THRESHOLD;
 	float norm = 0;
 	
@@ -45,7 +45,8 @@ int level_detect(float* input ){
 		output = 0; // false	
 	}
 	threshold = new_threshold;
-	
+	block = block + 1;
 	return output;
 	
 }
+
