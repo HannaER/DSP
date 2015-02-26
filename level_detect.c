@@ -29,16 +29,17 @@ int level_detect(float* input ){
 	float new_treshold = 0;
 	new_threshold = norm*0.05 + threshold*0.95;
 	
-	if (new_threshold > 1.1*threshold){
+	if (new_threshold > 0.9*threshold){
 		counter = counter + 9;
-		if(counter > 45) {
+		if(counter > 36) {
 		// start sampling N_BLOCKS of sampels	
 		output = 1; // true	
+		printf("%d", block);
 		}
 
 	} else {
 		counter = counter - 10;
-		put(input);	// add to ringbuffer
+		//put(input);	// add to ringbuffer
 		if (counter < 0){
 			counter = 0;
 		}

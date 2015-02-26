@@ -2,23 +2,39 @@
 /*****************************************************************************
  * speechrecognition.c
  *****************************************************************************/
-#include <errno.h>
+//bibliotek
 #include <stdio.h>
-#include <stdlib.h>
+
+// funktioner och defines
 #include "Levinson.h"
 #include "constants.h"
 #include "rm_noise.h"
 #include "pre_emph.h"
 #include "level_detect.h"
+
+// kanske inte nödvändiga här
+#include <complex.h> 
+#include <stats.h> 
+#include <stdlib.h>
+#include <errno.h>
+
+// includes för tester
 #include "fft_.h"
 #include "getX.h"
-#include <stats.h>
-#include <complex.h>
+#include "test_signal.h"
 
-
+/*
 float y[901];
 float x[901];
-float z[901];
+float z[901];*/
+
+float b1[Block_LENGTH];
+float b2[Block_LENGTH];
+float b3[Block_LENGTH];
+float b4[Block_LENGTH];
+float b5[Block_LENGTH];
+float b6[Block_LENGTH];
+
 
 struct block_t{
 	float reflect[N_REFLEC]; // reflektionskoefficienterna
@@ -35,13 +51,15 @@ int main( void )
 	
 	
 	
-	block_t[N_BLOCKS + 3] record; // lista med structs som är inspelningen
+	//block_t[N_BLOCKS + 3] record; // lista med structs som är inspelningen
 
-	get_x(x); // add input
+	//get_x(x); // add input
 
-	rm_noise(x, y); // notch filter
+	//rm_noise(x, y); // notch filter
 		
-	pre_emph(y, z); //pre_emph == fir filter
+	//pre_emph(y, z); //pre_emph == fir filter
+	
+	//testa level detection
 	
 	
 	
