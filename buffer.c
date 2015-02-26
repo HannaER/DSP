@@ -1,5 +1,6 @@
-
-static float buffer[BUFFER_LENGTH][BLOCK_LENGTH];
+#include <stdio.h>
+#include "constants.h"
+static float buffer[BUFFER][BLOCK_LENGTH];
 static int length = 0;
 static int index = 0;
 
@@ -10,18 +11,21 @@ void put(float* block)
 	}
 
 	int i;
-	for(i = 0; i < BLOCK_LENGTH, i++){
+	for(i = 0; i < BLOCK_LENGTH; i++){
 		buffer[index][i] = block[i];
 	}
 
-	index = (index + 1) % BUFFER_LENGTH;
+	index = (index + 1) % BUFFER;
+	return;
 }
 
 
-int poll(float* blocks){
-	for (int i = 0; i < length; ++i)
+
+int poll(float** blocks){
+	int i,j;
+	for (i = 0; i < length; ++i)
 	{
-		for (int j = 0; j < BLOCK_LENGTH; ++j)
+		for (j = 0; j < BLOCK_LENGTH; ++j)
 		{
 			blocks[i][j] = buffer[i][j];
 		}
@@ -30,12 +34,15 @@ int poll(float* blocks){
 	return length;
 }
 
+
 void print(){
-	for (int i = 0; i < length; ++i)
+	int i,j;
+	for (i = 0; i < length; ++i)
 	{
-		for (int j = 0; j < BLOCK_LENGTH; ++j)
+		for (j = 0; j < BLOCK_LENGTH; ++j)
 		{
-			printf ("%f \n", blocks[i][j]);
+			printf ("%f \n", buffer[i][j]);
 		}
 	}
+	return;
 }
