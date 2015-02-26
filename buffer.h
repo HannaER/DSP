@@ -1,10 +1,4 @@
-#ifndef
-
-#include "constants.h"
-
-#define BUFFER_LENGTH 		3
-
-
+#ifndef buffer
 
 void put(float* block);
 
@@ -13,4 +7,5 @@ int poll(float* blocks);
 void print();
 
 #endif
+
 

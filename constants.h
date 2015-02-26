@@ -24,4 +24,6 @@
 
 #define BUFFER			3
 
+#define SUBSET_LENGTH	8
+
 #endif

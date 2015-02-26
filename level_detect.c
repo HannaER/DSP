@@ -26,7 +26,7 @@ int level_detect(float* input ){
 		}
 	}
 	
-	float new_treshold = 0;
+	float new_threshold = 0;
 	new_threshold = norm*0.05 + threshold*0.95;
 	
 	if (new_threshold > 0.9*threshold){
