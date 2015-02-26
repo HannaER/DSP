@@ -66,7 +66,7 @@ Debug/Levinson.doj :Levinson.c $(VDSP)/212xx/include/stats.h constants.h
 	@echo ".\Levinson.c"
 	$(VDSP)/cc21k.exe -c .\Levinson.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\Levinson.doj -MM
 
-Debug/matching.doj :matching.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h 
+Debug/matching.doj :matching.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h constants.h 
 	@echo ".\matching.c"
 	$(VDSP)/cc21k.exe -c .\matching.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\matching.doj -MM
 
@@ -82,7 +82,7 @@ Debug/setup.doj :setup.c setup.h database.h $(VDSP)/212xx/include/stdio.h $(VDSP
 	@echo ".\setup.c"
 	$(VDSP)/cc21k.exe -c .\setup.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\setup.doj -MM
 
-Debug/speechrecognition.doj :speechrecognition.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h Levinson.h constants.h rm_noise.h pre_emph.h level_detect.h $(VDSP)/212xx/include/complex.h $(VDSP)/212xx/include/stats.h $(VDSP)/212xx/include/stdlib.h $(VDSP)/212xx/include/errno.h $(VDSP)/212xx/include/yvals.h $(VDSP)/212xx/include/string.h fft_.h getX.h test_signal.h 
+Debug/speechrecognition.doj :speechrecognition.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h Levinson.h constants.h rm_noise.h pre_emph.h level_detect.h buffer.h $(VDSP)/212xx/include/complex.h $(VDSP)/212xx/include/stats.h $(VDSP)/212xx/include/stdlib.h $(VDSP)/212xx/include/errno.h $(VDSP)/212xx/include/yvals.h $(VDSP)/212xx/include/string.h fft_.h getX.h test_signal.h 
 	@echo ".\speechrecognition.c"
 	$(VDSP)/cc21k.exe -c .\speechrecognition.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\speechrecognition.doj -MM
 

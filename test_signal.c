@@ -1,21 +1,14 @@
 #include <stdio.h>
 
 
-void test_signal(float* b1, float* b2,float* b3,float* b4,float* b5,float* b6){
-	
-	/*b1[0] = ??
-	b1[1] = ??
-	..
-	..
-	..
-	b6[0 = ?? osv. autogenerare från matlab]*/
-	
-    b1[0] =0;
+void test_signal(float* b1, float* b2,float* b3,float* b4,float* b5,float* b6){	
+   
+	b1[0] =0;
     b1[1] =0;
     b1[2] =0;
     b1[3] =0;
     b1[4] =0;
-    b1[5] =0;
+    b1[5] =0;   
     b1[6] =0;
     b1[7] =0;
     b1[8] =0;

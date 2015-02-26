@@ -11,6 +11,7 @@
 #include "rm_noise.h"
 #include "pre_emph.h"
 #include "level_detect.h"
+#include "buffer.h"
 
 // kanske inte nödvändiga här
 #include <complex.h> 
@@ -32,6 +33,7 @@ float overlapping_samples[OVERLAP]; // vektor där senaste samplade värdena spara
 
 
 */
+/*
 // b1-b6 är till test_signal --> level_detection
 float b1[BLOCK_LENGTH];
 float b2[BLOCK_LENGTH];
@@ -39,18 +41,22 @@ float b3[BLOCK_LENGTH];
 float b4[BLOCK_LENGTH];
 float b5[BLOCK_LENGTH];
 float b6[BLOCK_LENGTH];
+*/
 
-
-struct block_t{
-	float reflect[N_REFLEC]; // reflektionskoefficienterna
-	float energy; // normen
-};
+// till buffertest
+float b1[2] = {1, 2};
+float b2[2] = {3, 4};
+float b3[2] = {5, 6};
+float b4[2] = {7, 8};
+float b5[2] = {9, 10};
+float b6[2] = {11, 12};
+float b7[2] = {13, 14};
 
 
 int main( void )
 
 {
-	// INNAN RUN BÖRJAR: räkna ut treshold och deklarera!
+	// INNAN RUN BÖRJAR: varna, vänra, räkna ner och sedan räkna ut treshold och deklarera!
 	
 	
 	
@@ -64,31 +70,43 @@ int main( void )
 		
 	//pre_emph(y, z); //pre_emph == fir filter
 	
+	
+	//testa buffer
+
+	put(b1);
+	put(b2);
+	put(b3);
+	put(b4);
+	//print();
+	//printf("\n");
+	put(b5);
+	//print();
+	//printf("\n");
+	put(b6);
+	put(b7);
+	//print();
+	
+	// testing to pick out and use the oldest element
+	int length = get_length();
+	float temp[length][2];
+	int old = poll(*temp);
+	int i;
+	float tempvec[2];
+	tempvec = temp[old];
+	for(i = 0; i < 2; i++){
+		printf("%d ", tempvec[i]);
+	}
+	
 	//testa level detection
+	/*	test_signal(b1, b2, b3, b4, b5, b6);
 	
-	test_signal(b1, b2, b3, b4, b5, b6);
-	
-	level_detection(b1);
-	level_detection(b2);
-	level_detection(b3);
-	level_detection(b4);
-	level_detection(b5);
-	level_detection(b6);
+	level_detect(b1);
+	level_detect(b2);
+	level_detect(b3);
+	level_detect(b4);
+	level_detect(b5); // kommer att ge en level detection i och med detta block
+//	level_detect(b6);*/
 
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	//Testar levinson och autocorr
 	/*

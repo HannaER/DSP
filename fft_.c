@@ -23,4 +23,3 @@ void fft_(double** x)
 	}*/
 	
 }
-

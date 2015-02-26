@@ -15,7 +15,6 @@ int level_detect(float* input ){
 	int i;
 	float temp = 0;
 	int output = 0;
-	
 	for(i = 0; i < BLOCK_LENGTH; i++){ // calculate norm
 		temp = input[i];
 		if (temp < 0){
@@ -32,14 +31,16 @@ int level_detect(float* input ){
 	if (new_threshold > 0.9*threshold){
 		counter = counter + 9;
 		if(counter > 36) {
-		// start sampling N_BLOCKS of sampels	
-		output = 1; // true	
-		printf("%d", block);
+		// start sampling N_BLOCKS of sampels
+		output = 1; // true			
+		} else if(counter <= 36) {
+		put(input);
+		output = 0;	
 		}
 
-	} else {
+	} else if(new_threshold <= 0.9*threshold){
 		counter = counter - 10;
-		//put(input);	// add to ringbuffer
+		put(input);	// add to ringbuffer
 		if (counter < 0){
 			counter = 0;
 		}
