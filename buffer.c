@@ -1,13 +1,10 @@
 #include <stdio.h>
 #include "constants.h"
-static float buffer[BUFFER][BLOCK_LENGTH];
+static pm float buffer[BUFFER][BLOCK_LENGTH*3];
 static int length = 0;
 static int index = 0;
 static int oldest = 0;
 
-// måste skrivas om så att äldsta elementet alltid skrivs 
-// ut och pollas först, dvs att index 0 alltid är äldsta
-// vektorn
 
 void put(float* block)
 {
@@ -30,10 +27,10 @@ int get_length(){
 }
 
 
-int poll(float* blocks){ // returns the index of the oldest element
+int poll(float* block){ // returns the index of the oldest element
 	
-	memcpy(blocks, *buffer, length*BLOCK_LENGTH );
-	return oldest;
+	
+	return ;
 }
 
 
