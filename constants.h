@@ -36,10 +36,10 @@
 
 
 
-typedef struct block_t{
+typedef struct {
 	float reflect[N_REFLEC]; // reflektionskoefficienterna
-	float energy; // summan av absolut beloppen av amplituden
-};
+	float energy; // summan av absolutbeloppen av amplituden
+} block_t;
 
 
 

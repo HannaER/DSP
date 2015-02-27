@@ -70,11 +70,11 @@ Debug/matching.doj :matching.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/inclu
 	@echo ".\matching.c"
 	$(VDSP)/cc21k.exe -c .\matching.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\matching.doj -MM
 
-Debug/pre_emph.doj :pre_emph.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h $(VDSP)/212xx/include/filter.h $(VDSP)/212xx/include/complex.h 
+Debug/pre_emph.doj :pre_emph.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h constants.h $(VDSP)/212xx/include/filter.h $(VDSP)/212xx/include/complex.h 
 	@echo ".\pre_emph.c"
 	$(VDSP)/cc21k.exe -c .\pre_emph.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\pre_emph.doj -MM
 
-Debug/rm_noise.doj :rm_noise.c $(VDSP)/212xx/include/filter.h $(VDSP)/212xx/include/complex.h $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h 
+Debug/rm_noise.doj :rm_noise.c $(VDSP)/212xx/include/filter.h $(VDSP)/212xx/include/complex.h $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h constants.h 
 	@echo ".\rm_noise.c"
 	$(VDSP)/cc21k.exe -c .\rm_noise.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\rm_noise.doj -MM
 

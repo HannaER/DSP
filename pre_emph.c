@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "constants.h"
 #include <filter.h>
 
 #define TAPS 2
