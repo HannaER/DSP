@@ -91,10 +91,27 @@ int main( void )
 				temp_struct->reflect[i] = temp_reflec[i];
 			}
 			temp_struct->energy = temp_energy;
-			record[3] = temp_struct;
+			record[BUFFER] = temp_struct;
 			for(i = 0; i < N_BLOCKS - 1; i++){ // sampla i 1.5 seconds
-					
+				// sampla nytt block om 80 sample i new_sample
+				for(i = 0; i < OVERLAP; i++){
+					current_block[i] = sample_old[i];
+					current_block[OVERLAP + i] = sample_new[i];
+					sample_old[i] = sample_new[i];
 				}
+				rm_noise(current_block,temp_block);
+				pre_emph(temp_block, current_block);
+				float temp_energy;
+				float temp_reflec[N_REFLEC] = {0};			
+				levinson(current_block, temp_reflec);
+				temp_energy = get_energy(); // hämta senast uträknade energyn
+				// create a struct and add to record 
+				block_t temp_struct;
+				for(i = 0; i < N_REFLEC; i++){
+					temp_struct->reflect[i] = temp_reflec[i];
+				}
+				temp_struct->energy = temp_energy;
+			}
 		} else {
 			
 		}

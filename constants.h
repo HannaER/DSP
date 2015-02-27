@@ -38,7 +38,7 @@
 
 typedef struct block_t{
 	float reflect[N_REFLEC]; // reflektionskoefficienterna
-	float energy; // normen
+	float energy; // summan av absolut beloppen av amplituden
 };
 
 
