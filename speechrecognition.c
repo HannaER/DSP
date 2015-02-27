@@ -26,13 +26,13 @@
 #include "test_signal.h"
 
 /*
+// testar get_x, iir och pre_emph
 float y[901];
 float x[901];
 float z[901];
 float overlapping_samples[OVERLAP]; // vektor där senaste samplade värdena sparas
-
-
 */
+
 /*
 // b1-b6 är till test_signal --> level_detection test
 float b1[BLOCK_LENGTH];
@@ -54,17 +54,52 @@ float b6[2] = {11, 12};
 float b7[2] = {13, 14};
 */
 
+block_t[N_BLOCKS + 3] record; // lista med structs som är inspelningen
+static float sample_old[OVERLAP] = {0};
+static float sample_new[OVERLAP] = {0};
+static float current_block[BLOCK_LENGTH] = {0};
+static float temp_block[BLOCK_LENGTH] = {0};
+
 int main( void )
 
 {
-	// INNAN RUN BÖRJAR: varna, vänra, räkna ner och sedan räkna ut treshold och deklarera!
+	int i;
 	
 	
-	
-	
-	
-	//block_t[N_BLOCKS + 3] record; // lista med structs som är inspelningen
+	// INNAN RUN BÖRJAR:
+	//varna, vänta, räkna ner mha dioderna --> räkna ut threshold
+	// fyll sample_old
+	while(1){
+		// sample 80 sample in fs and put in sample_new
+		// kan kanske spara direkt i sample_current
+		for(i = 0; i < OVERLAP; i++){
+			current_block[i] = sample_old[i];
+			current_block[OVERLAP + i] = sample_new[i];
+			sample_old[i] = sample_new[i];
+		}
+		rm_noise(current_block,temp_block);
+		pre_emph(temp_block, current_block);		
 
+		if(level_detect(current_block)){ // if detected voice
+			float temp_energy;
+			float temp_reflec[N_REFLEC] = {0};			
+			levinson(current_block, temp_reflec);
+			temp_energy = get_energy(); // hämta senast uträknade energyn
+			// create a struct and add to record 
+			block_t temp_struct;
+			for(i = 0; i < N_REFLEC; i++){
+				temp_struct->reflect[i] = temp_reflec[i];
+			}
+			temp_struct->energy = temp_energy;
+			record[3] = temp_struct;
+			for(i = 0; i < N_BLOCKS - 1; i++){ // sampla i 1.5 seconds
+					
+				}
+		} else {
+			
+		}
+	}
+	
 	//get_x(x); // add input
 
 	//rm_noise(x, y); // notch filter

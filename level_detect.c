@@ -2,19 +2,21 @@
 #include "constants.h"
 #include "buffer.h"
 
-
+static float norm = 0;
+static float energy = 0;
+	
 
 // input is a vector of length BLOCK_LENGTH consisting of the recent samples
 int level_detect(float* input ){ 
 	static int counter = 0;
 	static int block = 1;
-	static int threshold = THRESHOLD;
-	float norm = 0;
-	
+	static float threshold = THRESHOLD; // OBS ska bytas
+
 	
 	int i;
-	float temp = 0;
 	int output = 0;
+	norm = calc_norm(input);
+	/*
 	for(i = 0; i < BLOCK_LENGTH; i++){ // calculate norm
 		temp = input[i];
 		if (temp < 0){
@@ -24,6 +26,7 @@ int level_detect(float* input ){
 			norm = norm + (temp)*(temp);
 		}
 	}
+	*/
 	
 	float new_threshold = 0;
 	new_threshold = norm*0.05 + threshold*0.95;
@@ -50,5 +53,39 @@ int level_detect(float* input ){
 	block = block + 1;
 	return output;
 	
+}
+
+float calc_norm(float* input){
+	float temp = 0;
+	norm = 0;
+	energy = 0;
+	for(i = 0; i < BLOCK_LENGTH; i++){ 
+		temp = input[i];
+		norm = norm + (temp)*(temp);
+		if(temp >= 0){
+			energy = energy + temp;
+		} else if (temp < 0){
+			energy = energy - temp;	
+		}
+	}	
+	return norm;	
+}
+
+float calc_energy(float* input){
+		float temp = 0;
+		energy = 0;
+		for(i = 0; i < BLOCK_LENGTH; i++){ 
+			temp = input[i];
+			if(temp >= 0){
+				energy = energy + temp;
+			} else if (temp < 0){
+				energy = energy - temp;	
+			}
+		}	
+		return energy;
+}
+
+float get_energy(){
+	return energy;
 }
 

@@ -22,8 +22,10 @@
 //IsnÂ´t useful yet
 #define THRESHOLD       0.05   // ska sättas först i run metoden innan allt startar
 
+//length of buffer
 #define BUFFER			3
 
+// number fo subsets
 #define SUBSET_LENGTH	8
 
 
@@ -34,7 +36,7 @@
 
 
 
-struct block_t{
+typedef struct block_t{
 	float reflect[N_REFLEC]; // reflektionskoefficienterna
 	float energy; // normen
 };

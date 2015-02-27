@@ -2,7 +2,7 @@
 #include <filter.h>
 
 #define TAPS 2
-#define SAMPLES 901
+#define SAMPLES BLOCK_LENGTH
 
 float pm fircoeffs[TAPS] = {-0.97, 1};
 

@@ -9,9 +9,12 @@ sequence R of length P+1 and return the autocorrelation coefficients
  DSP functionen autocorr, input is the input signal i ett block om */
  
  
-void levinson(double *R, double *A, double *K)
+void levinson(float* input, float* K)
 {
-    double Am1[62];
+	float A[N_REFLEC] = {0};
+	float R[N_REFLEC + 1] = {0};
+	autocorr(R, input, BLOCK_LENGTH, N_REFLEC+1);
+    float Am1[62];
 
     if(R[0]==0.0) {
     	int i; 
@@ -20,7 +23,7 @@ void levinson(double *R, double *A, double *K)
             A[i]=0.0;
         }
     } else {
-        double km, Em1, Em;
+        float km, Em1, Em;
         int k, s, m;
         for (k=0; k <= N_REFLEC; k++){
             A[0] = 0;
@@ -34,16 +37,16 @@ void levinson(double *R, double *A, double *K)
         
         for (m=1; m <= N_REFLEC; m++)               //m=2:N+1
         {
-            double err = 0.0f;                    	//err = 0;
+            float err = 0.0f;                    	//err = 0;
             for (k = 1; k <= m-1; k++){            	//for k=2:m-1
                 err += Am1[k]*R[m-k];
             }
             										// err = err + am1(k)*R(m-k+1);
             km = ( R[m] - err ) / Em1;            	//km=(R(m)-err)/Em1;
-            K[m-1] = -( (double) km);
-            A[m] = (double) km;                     //am(m)=km;
+            K[m-1] = -( (float) km);
+            A[m] = (float) km;                     //am(m)=km;
             for (k=1;k<=m-1;k++){			        //for k=2:m-1
-                A[k]= (double) (Am1[k]-km*Am1[m-k]);
+                A[k]= (float) (Am1[k]-km*Am1[m-k]);
             }
               										// am(k)=am1(k)-km*am1(m-k+1);
             Em=(1-km*km)*Em1;                		//Em=(1-km*km)*Em1;

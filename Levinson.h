@@ -1,6 +1,6 @@
 #ifndef levinson
 
 
-void levinson(double *R, double *A, double *K);
+void levinson(float* input, float* K);
 
 #endif
