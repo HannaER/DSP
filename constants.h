@@ -25,14 +25,8 @@
 //length of buffer
 #define BUFFER			(3 * BLOCK_LENGTH) 
 
-// number fo subsets
+// number of subsets
 #define SUBSET_LENGTH	8
-
-
-
-
-
-
 
 
 
