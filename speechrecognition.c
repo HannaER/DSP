@@ -13,6 +13,7 @@
 #include "level_detect.h"
 #include "buffer.h"
 #include "cut.h"
+#include "create_subsets.h"
 
 // kanske inte nödvändiga här
 #include <complex.h> 
@@ -105,15 +106,15 @@ int main(void)
 			float temp_reflec[N_REFLEC];
 			while(poll(temp_block)){
 				levinson(temp_block, record[i].reflect );
-				record[i].energy = calc_energy(current_block);
-				i += 1:
+				record[i].energy = calc_energy(temp_block);
+				i += 1;
 			}
 
-			// cut cut()
 			int first = 0;
 			int last = 0;
-			//cut(record, first, last);
-			// subsets create_subsets()
+			cut(record, first, last);
+			block_t output[SUBSET_LENGTH];
+			create_subsets(record, first, last, output);
 			// matching matching()
 		} else { // if no speech
 			
