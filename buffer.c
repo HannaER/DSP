@@ -1,48 +1,38 @@
 #include <stdio.h>
 #include "constants.h"
-static pm float buffer[BUFFER * BLOCK_LENGTH];
+static pm float buffer[BUFFER]; //dont know if it works with pm here, just remove if not. 
 static int length = 0;
 static int index = 0;
 static int oldest = 0;
+static int next = 0;
 
 
 void put(float* block)
 {
 	if (length < 3){
 		length += 1;
+	}else{
+		oldest = (oldest  + BLOCK_LENGTH) % BUFFER;
 	}
-	
 	int i;
 	for(i = 0; i < BLOCK_LENGTH; i++){
-		buffer[index*] = block[i];
+		buffer[next + i] = block[i];
 	}
+	next = (next + BLOCK_LENGTH) % BUFFER ;
 
-	index = (index + 1) % BUFFER;
-	oldest = (index)%BUFFER;
-	return;
+
 }
-
-int get_length(){
-	return length;	
-}
-
 
 int poll(float* block){ // returns the index of the oldest element
-	
-	
-	return 1;
-}
-
-
-void print(){
-	int i,j;
-	for (i = 0; i < length; ++i)
-	{
-		for (j = 0; j < BLOCK_LENGTH; ++j)
-		{
-			printf ("%f ", buffer[(oldest + i)%BUFFER][j]);
-		}
-		printf("\n");
+	if(length == 0){
+		return 0;
 	}
-	return;
+	int i;
+	for(i = 0; i < BLOCK_LENGTH; i++){
+		block[i] = buffer[oldest + i];
+	}
+	oldest = (oldest + BLOCK_LENGTH) % BUFFER;
+	length -= 1;
+	
+	return length;
 }

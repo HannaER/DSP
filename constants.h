@@ -23,7 +23,7 @@
 #define THRESHOLD       0.05   // ska sättas först i run metoden innan allt startar
 
 //length of buffer
-#define BUFFER			3
+#define BUFFER			(3 * BLOCK_LENGTH) 
 
 // number fo subsets
 #define SUBSET_LENGTH	8
