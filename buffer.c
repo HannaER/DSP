@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "constants.h"
-static pm float buffer[BUFFER][BLOCK_LENGTH*3];
+static pm float buffer[BUFFER * BLOCK_LENGTH];
 static int length = 0;
 static int index = 0;
 static int oldest = 0;
@@ -14,7 +14,7 @@ void put(float* block)
 	
 	int i;
 	for(i = 0; i < BLOCK_LENGTH; i++){
-		buffer[index][i] = block[i];
+		buffer[index*] = block[i];
 	}
 
 	index = (index + 1) % BUFFER;
