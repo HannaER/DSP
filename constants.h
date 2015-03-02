@@ -23,7 +23,10 @@
 #define THRESHOLD       0.05   // ska sättas först i run metoden innan allt startar
 
 //length of buffer
-#define BUFFER			(3 * BLOCK_LENGTH) 
+#define BUFFER			3
+
+//Buffer length in samples. 
+#define BUFFER_SIZE		6 
 
 // number of subsets
 #define SUBSET_LENGTH	8
