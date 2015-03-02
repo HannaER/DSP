@@ -23,7 +23,7 @@ void put(float* block)
 
 }
 
-int poll(float* block){ // returns the index of the oldest element
+int poll(float* block){ 
 	if(length == 0){
 		return 0;
 	}

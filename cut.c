@@ -6,7 +6,7 @@
 int i;	
 static float threshold = 0;
 
-void cut(block_t* input, int* first, int* last ){ 
+void cut(block_t* input, int first, int last ){ 
 	int counter = 0;
 
 	float new_threshold = 0;
@@ -62,7 +62,7 @@ void cut(block_t* input, int* first, int* last ){
 		}
 		threshold = new_threshold;		
 	}
-	if(last => N_BLOCKS + BUFFER){
+	if(last >= N_BLOCKS + BUFFER){
 		last = N_BLOCKS + BUFFER;
 	}
 }
