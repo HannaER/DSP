@@ -54,22 +54,23 @@ float b6[2] = {11, 12};
 float b7[2] = {13, 14};
 */
 
-block_t[N_BLOCKS + 3] record; // lista med structs som är inspelningen
+block_t record[N_BLOCKS + BUFFER]; // lista med structs som är inspelningen
 static float sample_old[OVERLAP] = {0};
 static float sample_new[OVERLAP] = {0};
 static float current_block[BLOCK_LENGTH] = {0};
 static float temp_block[BLOCK_LENGTH] = {0};
+
+int run = 1;
 
 int main( void )
 
 {
 	int i;
 	
-	
 	// INNAN RUN BÖRJAR:
 	//varna, vänta, räkna ner mha dioderna --> räkna ut threshold
 	// fyll sample_old
-	while(1){
+	while(run){
 		// sample 80 sample in fs and put in sample_new
 		// kan kanske spara direkt i sample_current
 		for(i = 0; i < OVERLAP; i++){
@@ -80,19 +81,22 @@ int main( void )
 		rm_noise(current_block,temp_block);
 		pre_emph(temp_block, current_block);		
 
-		if(level_detect(current_block)){ // if detected voice
-			float temp_energy;
-			float temp_reflec[N_REFLEC] = {0};			
-			levinson(current_block, temp_reflec);
-			temp_energy = get_energy(); // hämta senast uträknade energyn
-			// create a struct and add to record 
-			block_t temp_struct;
+		if(level_detect(current_block)){ // if detected speech
+		
+		
+			float temp_energy0;
+			float temp_reflec0[N_REFLEC] = {0};			
+			levinson(current_block, temp_reflec0);
+			temp_energy0 = get_energy(); // hämta senast uträknade energin
+			block_t temp_struct0;
 			for(i = 0; i < N_REFLEC; i++){
-				temp_struct->reflect[i] = temp_reflec[i];
+				temp_struct0.reflect[i] = temp_reflec0[i];
 			}
-			temp_struct->energy = temp_energy;
-			record[BUFFER] = temp_struct;
-			for(i = 0; i < N_BLOCKS - 1; i++){ // sampla i 1.5 seconds
+			temp_struct0.energy = temp_energy0;
+			record[BUFFER] = temp_struct0;
+			
+			
+			for(i = BUFFER + 1; i < N_BLOCKS + BUFFER  ; i++){ // sampla i 1.5 seconds
 				// sampla nytt block om 80 sample i new_sample
 				for(i = 0; i < OVERLAP; i++){
 					current_block[i] = sample_old[i];
@@ -104,24 +108,19 @@ int main( void )
 				float temp_energy;
 				float temp_reflec[N_REFLEC] = {0};			
 				levinson(current_block, temp_reflec);
-				temp_energy = get_energy(); // hämta senast uträknade energyn
-				// create a struct and add to record 
+				temp_energy = calc_energy(current_block);
 				block_t temp_struct;
 				for(i = 0; i < N_REFLEC; i++){
-					temp_struct->reflect[i] = temp_reflec[i];
+					temp_struct.reflect[i] = temp_reflec[i];
 				}
-				temp_struct->energy = temp_energy;
+
+				temp_struct.energy = temp_energy;
+				record[i] = temp_struct;
 			}
-		} else {
+		} else { // if no speech
 			
 		}
 	}
-	
-	//get_x(x); // add input
-
-	//rm_noise(x, y); // notch filter
-		
-	//pre_emph(y, z); //pre_emph == fir filter
 	
 	/*
 	//testa buffer
@@ -167,20 +166,7 @@ int main( void )
 //	level_detect(b6);*/
 
 	
-	//Testar levinson och autocorr
-	/*
-	double x[] = {1,2,3,4,5,6,7,8,9};
-	double A[K_LENGTH] = {0};
-	double K[K_LENGTH] = {0};		
-	double R[K_LENGTH+1] = {0};
-	autocorr(R, x, BLOCK_LENGTH, K_LENGTH+1);
-	
 
-	levinson(R, A, K);
-	int i;
-	for(i = 0; i<K_LENGTH; ++i){
-		printf("%f \n", K[i]); 
-	}*/
 	
 	return 0;
 }

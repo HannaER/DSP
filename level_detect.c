@@ -4,7 +4,7 @@
 
 static float norm = 0;
 static float energy = 0;
-	
+int i;	
 
 // input is a vector of length BLOCK_LENGTH consisting of the recent samples
 int level_detect(float* input ){ 
@@ -13,7 +13,7 @@ int level_detect(float* input ){
 	static float threshold = THRESHOLD; // OBS ska bytas
 
 	
-	int i;
+	
 	int output = 0;
 	norm = calc_norm(input);
 	/*

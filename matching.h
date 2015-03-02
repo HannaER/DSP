@@ -1,6 +1,6 @@
 #ifndef matching
 
-void matching(struct block_t* input);
+void matching(block_t* input);
 
 
 #endif

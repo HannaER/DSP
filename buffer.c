@@ -30,7 +30,7 @@ int get_length(){
 int poll(float* block){ // returns the index of the oldest element
 	
 	
-	return ;
+	return 1;
 }
 
 
