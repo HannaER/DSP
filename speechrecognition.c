@@ -14,6 +14,8 @@
 #include "buffer.h"
 #include "cut.h"
 #include "create_subsets.h"
+#include "matching.h"
+#include "database.h"
 
 // kanske inte nödvändiga här
 #include <complex.h> 
@@ -75,7 +77,6 @@ int main(void)
 	
 	while(run){
 		// sample 80 sample in fs and put in sample_new
-		// kan kanske spara direkt i sample_current
 		for(i = 0; i < OVERLAP; i++){
 			current_block[i] = sample_old[i];
 			current_block[OVERLAP + i] = sample_new[i];
@@ -100,8 +101,6 @@ int main(void)
 				levinson(current_block, record[i].reflect);
 				record[i].energy = calc_energy(current_block);
 			}
-			//iir, pre-emph, schur av buffer --> add struct in record
-			
 			i = 0;
 			float temp_reflec[N_REFLEC];
 			while(poll(temp_block)){
@@ -115,11 +114,54 @@ int main(void)
 			cut(record, first, last);
 			block_t output[SUBSET_LENGTH];
 			create_subsets(record, first, last, output);
-			// matching matching()
+			// matching(output); 
+			
+			// set LEDS?
+			
 		} else { // if no speech
 			
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	/*
+	//testa create_subsets, ändra i constants.h
+	int first = 0;
+	int last = 8;
+	//int last = 9;
+	block_t UT[3]; 
+	block_t IN[9];
+	//	block_t IN[10];
+	IN[0].reflect[0] = 1;
+	IN[0].reflect[1] = 4;
+	IN[1].reflect[0] = 2;
+	IN[1].reflect[1] = 5;
+	IN[2].reflect[0] = 3;
+	IN[2].reflect[1] = 6;
+	IN[3].reflect[0] = 1;
+	IN[3].reflect[1] = 2;
+	IN[4].reflect[0] = 1;
+	IN[4].reflect[1] = 2;
+	IN[5].reflect[0] = 1;
+	IN[5].reflect[1] = 2;
+	IN[6].reflect[0] = 3;
+	IN[6].reflect[1] = 6;
+	IN[7].reflect[0] = 3;
+	IN[7].reflect[1] = 6;
+	IN[8].reflect[0] = 3;	
+	IN[8].reflect[1] = 6;
+	//IN[9].reflect[0] = 3;	
+	//IN[9].reflect[1] = 6;					
+	create_subsets(IN, first, last, UT);
+	for(i = 0; i< 3; i++){
+		printf("%f %f \n", UT[i].reflect[0], UT[i].reflect[1]);
+	}
+	*/
 	
 	/*
 	//testa buffer

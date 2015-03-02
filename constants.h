@@ -5,7 +5,7 @@
 #define Fs              8000
 
 //The number of samples in each block
-#define BLOCK_LENGTH    2//160
+#define BLOCK_LENGTH    160
 
 //Record for this many seconds
 #define REC_TIME        1.5
