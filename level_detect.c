@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "constants.h"
 #include "buffer.h"
+#include "level_detect.h"
 
 static float norm = 0;
 static float energy = 0;
@@ -16,17 +17,6 @@ int level_detect(float* input ){
 	
 	int output = 0;
 	norm = calc_norm(input);
-	/*
-	for(i = 0; i < BLOCK_LENGTH; i++){ // calculate norm
-		temp = input[i];
-		if (temp < 0){
-			norm = norm + (-temp)*(-temp);	
-		}
-		else if(temp >= 0){
-			norm = norm + (temp)*(temp);
-		}
-	}
-	*/
 	
 	float new_threshold = 0;
 	new_threshold = norm*0.05 + threshold*0.95;
@@ -72,17 +62,17 @@ float calc_norm(float* input){
 }
 
 float calc_energy(float* input){
-		float temp = 0;
-		energy = 0;
-		for(i = 0; i < BLOCK_LENGTH; i++){ 
-			temp = input[i];
-			if(temp >= 0){
-				energy = energy + temp;
-			} else if (temp < 0){
-				energy = energy - temp;	
-			}
-		}	
-		return energy;
+	float temp = 0;
+	energy = 0;
+	for(i = 0; i < BLOCK_LENGTH; i++){ 
+		temp = input[i];
+		if(temp >= 0){
+			energy = energy + temp;
+		} else if (temp < 0){
+			energy = energy - temp;	
+		}
+	}	
+	return energy;
 }
 
 float get_energy(){

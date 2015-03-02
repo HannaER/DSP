@@ -4,9 +4,9 @@ void put(float* block);
 
 int poll(float* blocks);
 
-void print();
+void print(void);
 
-int get_length();
+int get_length(void);
 
 #endif
 

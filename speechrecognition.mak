@@ -46,6 +46,10 @@ Debug/create_subsets.doj :create_subsets.c $(VDSP)/212xx/include/stdio.h $(VDSP)
 	@echo ".\create_subsets.c"
 	$(VDSP)/cc21k.exe -c .\create_subsets.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\create_subsets.doj -MM
 
+./Debug/cut.doj :cut.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h constants.h buffer.h 
+	@echo ".\cut.c"
+	$(VDSP)/cc21k.exe -c .\cut.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\cut.doj -MM
+
 Debug/fft_.doj :fft_.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h $(VDSP)/212xx/include/complex.h $(VDSP)/212xx/include/filter.h 
 	@echo ".\fft_.c"
 	$(VDSP)/cc21k.exe -c .\fft_.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\fft_.doj -MM
@@ -58,7 +62,7 @@ Debug/getX.doj :getX.c $(VDSP)/212xx/include/errno.h $(VDSP)/212xx/include/yvals
 	@echo ".\getX.c"
 	$(VDSP)/cc21k.exe -c .\getX.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\getX.doj -MM
 
-Debug/level_detect.doj :level_detect.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h constants.h buffer.h 
+Debug/level_detect.doj :level_detect.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h constants.h buffer.h level_detect.h 
 	@echo ".\level_detect.c"
 	$(VDSP)/cc21k.exe -c .\level_detect.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\level_detect.doj -MM
 
@@ -90,9 +94,9 @@ Debug/test_signal.doj :test_signal.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx
 	@echo ".\test_signal.c"
 	$(VDSP)/cc21k.exe -c .\test_signal.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -proc ADSP-21262 -o .\Debug\test_signal.doj -MM
 
-./Debug/speechrecognition.dxe :$(VDSP)/212xx/ldf/ADSP-21262.LDF $(VDSP)/212xx/lib/2126x_rev_0.0/262_hdr.doj ./Debug/buffer.doj ./Debug/create_subsets.doj ./Debug/fft_.doj ./Debug/framework.doj ./Debug/getX.doj ./Debug/level_detect.doj ./Debug/Levinson.doj ./Debug/matching.doj ./Debug/pre_emph.doj ./Debug/rm_noise.doj ./Debug/setup.doj ./Debug/speechrecognition.doj ./Debug/test_signal.doj $(VDSP)/212xx/lib/2126x_rev_0.0/libc26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libio.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libdsp26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libcpp.dlb 
+./Debug/speechrecognition.dxe :$(VDSP)/212xx/ldf/ADSP-21262.LDF $(VDSP)/212xx/lib/2126x_rev_0.0/262_hdr.doj ./Debug/buffer.doj ./Debug/create_subsets.doj ./Debug/fft_.doj ./Debug/framework.doj ./Debug/getX.doj ./Debug/level_detect.doj ./Debug/Levinson.doj ./Debug/matching.doj ./Debug/pre_emph.doj ./Debug/rm_noise.doj ./Debug/setup.doj ./Debug/speechrecognition.doj ./Debug/test_signal.doj ./Debug/cut.doj $(VDSP)/212xx/lib/2126x_rev_0.0/libc26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libio.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libdsp26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libcpp.dlb 
 	@echo "Linking..."
-	$(VDSP)/cc21k.exe .\Debug\buffer.doj .\Debug\create_subsets.doj .\Debug\fft_.doj .\Debug\framework.doj .\Debug\getX.doj .\Debug\level_detect.doj .\Debug\Levinson.doj .\Debug\matching.doj .\Debug\pre_emph.doj .\Debug\rm_noise.doj .\Debug\setup.doj .\Debug\speechrecognition.doj .\Debug\test_signal.doj -L .\Debug -add-debug-libpaths -flags-link -od,.\Debug -o .\Debug\speechrecognition.dxe -proc ADSP-21262 -MM
+	$(VDSP)/cc21k.exe .\Debug\buffer.doj .\Debug\create_subsets.doj .\Debug\cut.doj .\Debug\fft_.doj .\Debug\framework.doj .\Debug\getX.doj .\Debug\level_detect.doj .\Debug\Levinson.doj .\Debug\matching.doj .\Debug\pre_emph.doj .\Debug\rm_noise.doj .\Debug\setup.doj .\Debug\speechrecognition.doj .\Debug\test_signal.doj -L .\Debug -add-debug-libpaths -flags-link -od,.\Debug -o .\Debug\speechrecognition.dxe -proc ADSP-21262 -MM
 
 endif
 
@@ -101,6 +105,7 @@ ifeq ($(MAKECMDGOALS),speechrecognition_Debug_clean)
 speechrecognition_Debug_clean:
 	-$(RM) "Debug\buffer.doj"
 	-$(RM) "Debug\create_subsets.doj"
+	-$(RM) ".\Debug\cut.doj"
 	-$(RM) "Debug\fft_.doj"
 	-$(RM) "Debug\framework.doj"
 	-$(RM) "Debug\getX.doj"

@@ -12,6 +12,7 @@
 #include "pre_emph.h"
 #include "level_detect.h"
 #include "buffer.h"
+#include "cut.h"
 
 // kanske inte nödvändiga här
 #include <complex.h> 
@@ -65,7 +66,7 @@ int run = 1;
 int main( void )
 
 {
-	int i;
+	int i,j, k;
 	
 	// INNAN RUN BÖRJAR:
 	//varna, vänta, räkna ner mha dioderna --> räkna ut threshold
@@ -81,8 +82,7 @@ int main( void )
 		rm_noise(current_block,temp_block);
 		pre_emph(temp_block, current_block);		
 
-		if(level_detect(current_block)){ // if detected speech
-		
+		if(level_detect(current_block)){ // if detected speech		
 		
 			float temp_energy0;
 			float temp_reflec0[N_REFLEC] = {0};			
@@ -93,15 +93,14 @@ int main( void )
 				temp_struct0.reflect[i] = temp_reflec0[i];
 			}
 			temp_struct0.energy = temp_energy0;
-			record[BUFFER] = temp_struct0;
-			
+			record[BUFFER] = temp_struct0;			
 			
 			for(i = BUFFER + 1; i < N_BLOCKS + BUFFER  ; i++){ // sampla i 1.5 seconds
 				// sampla nytt block om 80 sample i new_sample
-				for(i = 0; i < OVERLAP; i++){
-					current_block[i] = sample_old[i];
-					current_block[OVERLAP + i] = sample_new[i];
-					sample_old[i] = sample_new[i];
+				for(j = 0; j < OVERLAP; j++){
+					current_block[j] = sample_old[j];
+					current_block[OVERLAP + j] = sample_new[j];
+					sample_old[j] = sample_new[j];
 				}
 				rm_noise(current_block,temp_block);
 				pre_emph(temp_block, current_block);
@@ -110,13 +109,25 @@ int main( void )
 				levinson(current_block, temp_reflec);
 				temp_energy = calc_energy(current_block);
 				block_t temp_struct;
-				for(i = 0; i < N_REFLEC; i++){
-					temp_struct.reflect[i] = temp_reflec[i];
+				for(k = 0; k < N_REFLEC; k++){
+					temp_struct.reflect[k] = temp_reflec[k];
 				}
 
 				temp_struct.energy = temp_energy;
 				record[i] = temp_struct;
 			}
+			//iir, pre-emph, schur av buffer --> add struct in record
+			int length = get_length();
+			float temp_buff[length][BLOCK_LENGTH];
+			//k = poll(temp_buff); // returns index of oldest element
+			for(i = 0; i < BUFFER; i++){
+				
+			}
+			// cut cut()
+			int first, last;
+			cut(record, first, last);
+			// subsets create_subsets()
+			// matching matching()
 		} else { // if no speech
 			
 		}

@@ -75,6 +75,8 @@
 				</file>
 				<file name=".\create_subsets.h">
 				</file>
+				<file name=".\cut.h">
+				</file>
 				<file name=".\database.h">
 				</file>
 				<file name=".\fft_.h">
@@ -172,6 +174,22 @@
 							</file-configurations>
 						</file>
 						<file name=".\create_subsets.c">
+							<file-configurations>
+								<file-configuration name="Debug">
+									<excluded-flag value="no"/>
+									<build-with-flag value="project"/>
+									<intermediate-dir>.\Debug</intermediate-dir>
+									<output-dir>.\Debug</output-dir>
+								</file-configuration>
+								<file-configuration name="Release">
+									<excluded-flag value="no"/>
+									<build-with-flag value="project"/>
+									<intermediate-dir>.\Release</intermediate-dir>
+									<output-dir>.\Release</output-dir>
+								</file-configuration>
+							</file-configurations>
+						</file>
+						<file name=".\cut.c">
 							<file-configurations>
 								<file-configuration name="Debug">
 									<excluded-flag value="no"/>
