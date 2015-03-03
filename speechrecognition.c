@@ -13,6 +13,9 @@
 #include "level_detect.h"
 #include "buffer.h"
 #include "cut.h"
+#include "create_subsets.h"
+#include "matching.h"
+#include "database.h"
 
 // kanske inte nödvändiga här
 #include <complex.h> 
@@ -63,7 +66,7 @@ static float temp_block[BLOCK_LENGTH] = {0};
 
 int run = 1;
 
-int main( void )
+int main(void)
 
 {
 	int i,j, k;
@@ -71,9 +74,9 @@ int main( void )
 	// INNAN RUN BÖRJAR:
 	//varna, vänta, räkna ner mha dioderna --> räkna ut threshold
 	// fyll sample_old
+	
 	while(run){
 		// sample 80 sample in fs and put in sample_new
-		// kan kanske spara direkt i sample_current
 		for(i = 0; i < OVERLAP; i++){
 			current_block[i] = sample_old[i];
 			current_block[OVERLAP + i] = sample_new[i];
@@ -82,19 +85,9 @@ int main( void )
 		rm_noise(current_block,temp_block);
 		pre_emph(temp_block, current_block);		
 
-		if(level_detect(current_block)){ // if detected speech		
-		
-			float temp_energy0;
-			float temp_reflec0[N_REFLEC] = {0};			
-			levinson(current_block, temp_reflec0);
-			temp_energy0 = get_energy(); // hämta senast uträknade energin
-			block_t temp_struct0;
-			for(i = 0; i < N_REFLEC; i++){
-				temp_struct0.reflect[i] = temp_reflec0[i];
-			}
-			temp_struct0.energy = temp_energy0;
-			record[BUFFER] = temp_struct0;			
-			
+		if(level_detect(current_block)){ 				
+			levinson(current_block, record[BUFFER].reflect);
+			record[BUFFER].energy = get_energy();	
 			for(i = BUFFER + 1; i < N_BLOCKS + BUFFER  ; i++){ // sampla i 1.5 seconds
 				// sampla nytt block om 80 sample i new_sample
 				for(j = 0; j < OVERLAP; j++){
@@ -104,34 +97,71 @@ int main( void )
 				}
 				rm_noise(current_block,temp_block);
 				pre_emph(temp_block, current_block);
-				float temp_energy;
-				float temp_reflec[N_REFLEC] = {0};			
-				levinson(current_block, temp_reflec);
-				temp_energy = calc_energy(current_block);
-				block_t temp_struct;
-				for(k = 0; k < N_REFLEC; k++){
-					temp_struct.reflect[k] = temp_reflec[k];
-				}
+			
+				levinson(current_block, record[i].reflect);
+				record[i].energy = calc_energy(current_block);
+			}
+			i = 0;
+			float temp_reflec[N_REFLEC];
+			while(poll(temp_block)){
+				levinson(temp_block, record[i].reflect );
+				record[i].energy = calc_energy(temp_block);
+				i += 1;
+			}
 
-				temp_struct.energy = temp_energy;
-				record[i] = temp_struct;
-			}
-			//iir, pre-emph, schur av buffer --> add struct in record
-			int length = get_length();
-			float temp_buff[length][BLOCK_LENGTH];
-			//k = poll(temp_buff); // returns index of oldest element
-			for(i = 0; i < BUFFER; i++){
-				
-			}
-			// cut cut()
-			int first, last;
+			int first = 0;
+			int last = 0;
 			cut(record, first, last);
-			// subsets create_subsets()
-			// matching matching()
+			block_t output[SUBSET_LENGTH];
+			create_subsets(record, first, last, output);
+			// matching(output); 
+			
+			// set LEDS?
+			
 		} else { // if no speech
 			
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	/*
+	//testa create_subsets, ändra i constants.h
+	int first = 0;
+	int last = 8;
+	//int last = 9;
+	block_t UT[3]; 
+	block_t IN[9];
+	//	block_t IN[10];
+	IN[0].reflect[0] = 1;
+	IN[0].reflect[1] = 4;
+	IN[1].reflect[0] = 2;
+	IN[1].reflect[1] = 5;
+	IN[2].reflect[0] = 3;
+	IN[2].reflect[1] = 6;
+	IN[3].reflect[0] = 1;
+	IN[3].reflect[1] = 2;
+	IN[4].reflect[0] = 1;
+	IN[4].reflect[1] = 2;
+	IN[5].reflect[0] = 1;
+	IN[5].reflect[1] = 2;
+	IN[6].reflect[0] = 3;
+	IN[6].reflect[1] = 6;
+	IN[7].reflect[0] = 3;
+	IN[7].reflect[1] = 6;
+	IN[8].reflect[0] = 3;	
+	IN[8].reflect[1] = 6;
+	//IN[9].reflect[0] = 3;	
+	//IN[9].reflect[1] = 6;					
+	create_subsets(IN, first, last, UT);
+	for(i = 0; i< 3; i++){
+		printf("%f %f \n", UT[i].reflect[0], UT[i].reflect[1]);
+	}
+	*/
 	
 	/*
 	//testa buffer

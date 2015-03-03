@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "constants.h"
-static pm float BUFFER_SIZE[BUFFER_SIZE]; //dont know if it works with pm here, just remove if not. 
+static pm float buffer[BUFFER_SIZE]; //dont know if it works with pm here, just remove if not. 
 static int length = 0;
 static int index = 0;
 static int oldest = 0;
@@ -16,20 +16,20 @@ void put(float* block)
 	}
 	int i;
 	for(i = 0; i < BLOCK_LENGTH; i++){
-		BUFFER_SIZE[next + i] = block[i];
+		buffer[next + i] = block[i];
 	}
 	next = (next + BLOCK_LENGTH) % BUFFER_SIZE ;
 
 
 }
 
-int poll(float* block){ // returns the index of the oldest element
+int poll(float* block){ 
 	if(length == 0){
 		return 0;
 	}
 	int i;
 	for(i = 0; i < BLOCK_LENGTH; i++){
-		block[i] = BUFFER_SIZE[oldest + i];
+		block[i] = buffer[oldest + i];
 	}
 	oldest = (oldest + BLOCK_LENGTH) % BUFFER_SIZE;
 	length -= 1;

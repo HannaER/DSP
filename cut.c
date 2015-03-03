@@ -6,15 +6,13 @@
 int i;	
 static float threshold = 0;
 
-void cut(block_t* input, int* first, int* last ){ 
+void cut(block_t* input, int first, int last){ 
 	int counter = 0;
 
 	float new_threshold = 0;
-	block_t temp_block;
 	float temp_energy = 0;
 	for(i = 0; i < N_BLOCKS + BUFFER; i++){ // FORWARD
-		temp_block = input[i];
-		temp_energy = temp_block.energy;
+		temp_energy = input[i].energy;
 		if (i == 0){
 			threshold = temp_energy;	
 		}
@@ -37,13 +35,11 @@ void cut(block_t* input, int* first, int* last ){
 	}
 	if(first < 0){
 		first = 0;
-	}
-	
+	}	
 	for(i = 0; i < N_BLOCKS + BUFFER - first; i ++){ // BACKWARD
 		counter = 0;
 		new_threshold = 0;
-		temp_block = input[N_BLOCKS + BUFFER - i];
-		temp_energy = temp_block.energy;
+		temp_energy = input[N_BLOCKS + BUFFER - i].energy;
 		if(i == 0){
 			threshold = temp_energy;
 		}
@@ -62,7 +58,7 @@ void cut(block_t* input, int* first, int* last ){
 		}
 		threshold = new_threshold;		
 	}
-	if(last => N_BLOCKS + BUFFER){
+	if(last >= N_BLOCKS + BUFFER){
 		last = N_BLOCKS + BUFFER;
 	}
 }

@@ -21,9 +21,9 @@ int level_detect(float* input ){
 	float new_threshold = 0;
 	new_threshold = norm*0.05 + threshold*0.95;
 	
-	if (new_threshold > 0.9*threshold){
+	if (new_threshold > 1.12*threshold){
 		counter = counter + 9;
-		if(counter > 36) {
+		if(counter > 45) {
 		// start sampling N_BLOCKS of sampels
 		output = 1; // true			
 		} else if(counter <= 36) {
