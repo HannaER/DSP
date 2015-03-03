@@ -5,7 +5,7 @@
 #define Fs              8000
 
 //The number of samples in each block
-#define BLOCK_LENGTH    160
+#define BLOCK_LENGTH   	160
 
 //Record for this many seconds
 #define REC_TIME        1.5
@@ -20,7 +20,7 @@
 #define N_REFLEC        10
 
 //IsnÂ´t useful yet
-#define THRESHOLD       0.05   // ska sättas först i run metoden innan allt startar
+//#define THRESHOLD       0.05   // ska sättas först i run metoden innan allt startar
 
 //length of buffer
 #define BUFFER			3
@@ -31,6 +31,7 @@
 // number of subsets
 #define SUBSET_LENGTH	8
 
+#define DB_LENGTH		2 // how many different words there is as db i.e. "höger", "vänster" etc.
 
 
 typedef struct {

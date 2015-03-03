@@ -35,7 +35,7 @@ static float S[FILTER_BIQUAD_STATES];   // persistent biquad filter state
 static int enable;
 static int ledcounter;
 
-void process(int sig)
+void process2(int sig)
 {
     int n;
  
@@ -53,10 +53,10 @@ void process(int sig)
         // Filter input buffer by a 3-stage biquad filter.
         biquad(X, Y, soscoeff, S, DSP_BLOCK_SIZE, FILTER_BIQUAD_SECTIONS);
     } else {
-        // Pass-through.
-        memcpy(Y, X, sizeof(X));
     }
 
+        // Pass-through.
+        memcpy(Y, X, sizeof(X));
     // Copy output buffer to left and right audio channels.
     for(n=0; n<DSP_BLOCK_SIZE; ++n) {
         audioout[n].left = Y[n];
@@ -94,7 +94,7 @@ void main2()
     // SIG_SP1: the audio callback
     // SIG_USR0: the keyboard callback
     // SIG_TMZ: the timer callback
-    interrupt(SIG_SP1, process);
+    interrupt(SIG_SP1, process2);
     interrupt(SIG_USR0, keyboard);
     interrupt(SIG_TMZ, timer);
     timer_set(9830400, 9830400);

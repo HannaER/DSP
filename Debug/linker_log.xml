@@ -1,10 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Analog Devices/VisualDSP 5.1/System/linker_log.xsl"?>
-<DOCUMENT gen_time='Mon Mar 02 13:29:41 2015
+<DOCUMENT gen_time='Tue Mar 03 16:34:03 2015
 '>
-<MSG id='02CA6358' mid='li1050' type='Error' >
-<TEXT><![CDATA['_main' ('main'): Multiply defined symbol in processor 'p0'.
-        Initial definition:     '.\Debug\main.doj'
-        Attempted redefinition: '.\Debug\speechrecognition.doj']]></TEXT>
+<MSG id='02D82678' mid='li1021' type='Error' >
+<TEXT><![CDATA[The following symbols referenced in processor 'p0' could not be resolved:
+        'dsp_setleds [_dsp_setleds]' referenced from '.\Debug\speechrecognition.doj']]></TEXT>
 </MSG>
 </DOCUMENT>

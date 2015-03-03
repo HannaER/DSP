@@ -5,14 +5,13 @@
 
 static float norm = 0;
 static float energy = 0;
+static float threshold;
 int i;	
 
 // input is a vector of length BLOCK_LENGTH consisting of the recent samples
-int level_detect(float* input ){ 
+int level_detect(float* input){ 
 	static int counter = 0;
 	static int block = 1;
-	static float threshold = THRESHOLD; // OBS ska bytas
-
 	
 	
 	int output = 0;
@@ -43,6 +42,9 @@ int level_detect(float* input ){
 	block = block + 1;
 	return output;
 	
+}
+void set_threshold(float th){
+		threshold = th;	
 }
 
 float calc_norm(float* input){

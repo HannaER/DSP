@@ -2,13 +2,13 @@
 #define framework_h_included
 
 /* Configuration */
-#define DSP_SAMPLE_RATE         16000
-#define DSP_BLOCK_SIZE          32
-#define DSP_INPUT_GAIN          10
+#define DSP_SAMPLE_RATE         8000
+#define DSP_BLOCK_SIZE          80//32
+#define DSP_INPUT_GAIN          10 // 10 dB
 #define DSP_OUTPUT_ATTENUATION  0
 
 /* Constants */
-#define DSP_FREQUENCY           (12288000*16/2)
+#define DSP_FREQUENCY           98304000 //(12288000*16/2)
 
 /* Framework interface */
 typedef struct {

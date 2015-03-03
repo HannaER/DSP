@@ -47,15 +47,6 @@ void rm_noise(float* x, float* output)
 		state[i] = 0;			
 	}	
 	iir(x, output, coeffs, state, SAMPLES, SECTIONS);	
-	
-	/*for(i = 0; i < SAMPLES;i++){
-		//y[i] = y[i]*scale;
-		if(i<=4){
-		//printf("%f \n", output[i]);
-		//printf("%f \n", *output[i]);
-		}
-	}*/
-
 }
 
 

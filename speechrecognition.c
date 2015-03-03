@@ -4,6 +4,8 @@
  *****************************************************************************/
 //bibliotek
 #include <stdio.h>
+#include <processor_include.h>
+#include <signal.h>
 
 // funktioner och defines
 #include "Levinson.h"
@@ -15,7 +17,9 @@
 #include "cut.h"
 #include "create_subsets.h"
 #include "matching.h"
-#include "database.h"
+//#include "database.h"
+#include "framework.h"
+#include "hamming.h"
 
 // kanske inte nödvändiga här
 #include <complex.h> 
@@ -57,86 +61,136 @@ float b5[2] = {9, 10};
 float b6[2] = {11, 12};
 float b7[2] = {13, 14};
 */
-
+int state = 0;
 block_t record[N_BLOCKS + BUFFER]; // lista med structs som är inspelningen
 static float sample_old[OVERLAP] = {0};
 static float sample_new[OVERLAP] = {0};
-static float current_block[BLOCK_LENGTH] = {0};
-static float temp_block[BLOCK_LENGTH] = {0};
+static float current_block[BLOCK_LENGTH];
+static float temp_block[BLOCK_LENGTH];
+static block_t subsets[SUBSET_LENGTH];
 
+
+static int counter = 0;
 int run = 1;
+int threshold;
 
-int main(void)
+void process(int sig){
 
-{
+    
+    sample_t* audioin = dsp_get_audio();    	
 	int i,j, k;
 	
-	// INNAN RUN BÖRJAR:
-	//varna, vänta, räkna ner mha dioderna --> räkna ut threshold
-	// fyll sample_old
+	if(state == 0){	// init	
+		sample_t* audioout = dsp_get_audio();
+		for(i = 0; i < DSP_BLOCK_SIZE; ++i){
+			sample_old[i] = audioin[i].left;
+		}
+		threshold = calc_norm(sample_old);
+		set_threshold(threshold);
+		state = 1;
+		return;
+	}
 	
-	while(run){
-		// sample 80 sample in fs and put in sample_new
+	if(state == 1){ // check level detection
+		for(i = 0; i < DSP_BLOCK_SIZE; ++i){
+			sample_new[i] = audioin[i].left;
+		}
 		for(i = 0; i < OVERLAP; i++){
 			current_block[i] = sample_old[i];
 			current_block[OVERLAP + i] = sample_new[i];
 			sample_old[i] = sample_new[i];
 		}
 		rm_noise(current_block,temp_block);
-		pre_emph(temp_block, current_block);		
-
-		if(level_detect(current_block)){ 				
+		//pre_emph(temp_block, current_block);		
+		if(level_detect(temp_block)){ 
+			dsp_set_leds(7);
+			hamming(temp_block, current_block);				
 			levinson(current_block, record[BUFFER].reflect);
-			record[BUFFER].energy = get_energy();	
-			for(i = BUFFER + 1; i < N_BLOCKS + BUFFER  ; i++){ // sampla i 1.5 seconds
-				// sampla nytt block om 80 sample i new_sample
-				for(j = 0; j < OVERLAP; j++){
-					current_block[j] = sample_old[j];
-					current_block[OVERLAP + j] = sample_new[j];
-					sample_old[j] = sample_new[j];
-				}
-				rm_noise(current_block,temp_block);
-				pre_emph(temp_block, current_block);
-			
-				levinson(current_block, record[i].reflect);
-				record[i].energy = calc_energy(current_block);
-			}
-			i = 0;
-			float temp_reflec[N_REFLEC];
-			while(poll(temp_block)){
-				levinson(temp_block, record[i].reflect );
-				record[i].energy = calc_energy(temp_block);
-				i += 1;
-			}
-
-			int first = 0;
-			int last = 0;
-			cut(record, first, last);
-			block_t output[SUBSET_LENGTH];
-			create_subsets(record, first, last, output);
-			// matching(output); 
-			
-			// set LEDS?
-			
-		} else { // if no speech
-			
+			record[BUFFER].energy = get_energy();
+			state = 2;
+			return;				
 		}
 	}
+	if(state == 2 && counter < N_BLOCKS){ // sample 1.5 seconds
+		for(i = 0; i < DSP_BLOCK_SIZE; ++i){
+			sample_new[i] = audioin[i].left;
+		}	
+		for(j = 0; j < OVERLAP; j++){
+			current_block[j] = sample_old[j];
+			current_block[OVERLAP + j] = sample_new[j];
+			sample_old[j] = sample_new[j];
+		}
+		rm_noise(current_block,temp_block);
+		//pre_emph(temp_block, current_block);
+		hamming(temp_block, current_block);
+		levinson(current_block, record[BUFFER + 1 + counter].reflect);
+		record[BUFFER + 1 + counter].energy = calc_energy(current_block);
+		counter = counter + 1;
+		if(counter == N_BLOCKS - 1){
+			state = 3;
+			counter = 0;
+			return;
+		}
+	}
+	if(state == 3){ // add buffer elements, cut --> subsets
+		i = 0;
+		while(poll(temp_block)){
+			hamming(temp_block, current_block);
+			levinson(current_block, record[i].reflect );
+			record[i].energy = calc_energy(current_block);
+			i += 1;
+		}
+		int first = 0;
+		int last = 0;
+		cut(record, first, last);
+		create_subsets(record, first, last, subsets);
+		state = 4;
+		return;			
+	}	
+	if(state == 4){ // matching
+		//matching();
+		printf("finished!!");
+		dsp_set_leds(63);
+		state = 1;
+		return;	
+	}
+	return;
+}
+		/*
+	sample_t* audioin = dsp_get_audio();
+	sample_t* audioout = dsp_get_audio();
 	
+	int i;
+	for(i = 0; i < DSP_BLOCK_SIZE; ++i){
+		sample_new[i] = audioin[i].left;
+	}
 	
+	rm_noise(sample_new,temp_block);
+	//pre_emph(temp_block, current_block);
+	
+	if(level_detect(temp_block)){
+		dsp_set_leds(7);
+	}	
+	    // Copy output buffer to left and right audio channels.
+    for(i=0; i < DSP_BLOCK_SIZE; ++i) {
+        audioout[i].left = temp_block[i];
+        audioout[i].right = temp_block[i];
+    }*/
+    
 	
 	
 	
 	
 	
 	/*
+	
 	//testa create_subsets, ändra i constants.h
 	int first = 0;
-	int last = 8;
-	//int last = 9;
+	//int last = 8;
+	int last = 9;
 	block_t UT[3]; 
-	block_t IN[9];
-	//	block_t IN[10];
+	//block_t IN[9];
+	block_t IN[10];
 	IN[0].reflect[0] = 1;
 	IN[0].reflect[1] = 4;
 	IN[1].reflect[0] = 2;
@@ -155,13 +209,13 @@ int main(void)
 	IN[7].reflect[1] = 6;
 	IN[8].reflect[0] = 3;	
 	IN[8].reflect[1] = 6;
-	//IN[9].reflect[0] = 3;	
-	//IN[9].reflect[1] = 6;					
+	IN[9].reflect[0] = 3;	
+	IN[9].reflect[1] = 6;					
 	create_subsets(IN, first, last, UT);
 	for(i = 0; i< 3; i++){
 		printf("%f %f \n", UT[i].reflect[0], UT[i].reflect[1]);
-	}
-	*/
+	}*/
+	
 	
 	/*
 	//testa buffer
@@ -204,10 +258,22 @@ int main(void)
 	level_detect(b3);
 	level_detect(b4);
 	level_detect(b5); // kommer att ge en level detection i och med detta block
-//	level_detect(b6);*/
+//	level_detect(b6);
 
-	
+}*/
 
+
+
+int main(void)
+{	
+	dsp_init();
 	
+	interrupt(SIG_SP1, process);
+	
+	dsp_start();
+
+	while(run){
+		idle();	
+	}
 	return 0;
 }

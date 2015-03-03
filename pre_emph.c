@@ -2,20 +2,20 @@
 #include "constants.h"
 #include <filter.h>
 
-#define TAPS 2
+#define TAPS 1//2
 #define SAMPLES BLOCK_LENGTH
 
-float pm fircoeffs[TAPS] = {-0.97, 1};
+float pm fircoeffs[TAPS] = {1};//{-0.97, 1};
+static float firstate[TAPS+1] = {0};
 
 void pre_emph(float* input, float* output){
 	
 	/* coeffs array must be */
 	/* initialized and in PM memory */
-	float firstate[TAPS+1];
+	//fir(input, output, fircoeffs, firstate, SAMPLES, TAPS);
 	int i;
-	for (i = 0; i < TAPS+1; i++){
-		firstate[i] = 0; /* initialize state array */
+	for(i = 0; i <160; i++){
+		output[i] = input[i];
 	}
-	fir(input, output, fircoeffs, firstate, SAMPLES, TAPS);
 	
 }
