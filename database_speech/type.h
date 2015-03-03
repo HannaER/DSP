@@ -5,11 +5,6 @@
 #define	REFLEC_LENGTH	3
 #define	N_WORDS		1
 
-typedef struct 
-{
-	float reflec[N_REFLEC];
-	float energy;
-} block_t;
 
 typedef struct 
 {

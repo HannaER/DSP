@@ -74,6 +74,10 @@ Debug/Levinson.doj :Levinson.c $(VDSP)/212xx/include/stats.h constants.h
 	@echo ".\Levinson.c"
 	$(VDSP)/cc21k.exe -c .\Levinson.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -si-revision 0.1 -proc ADSP-21262 -o .\Debug\Levinson.doj -MM
 
+Debug/load_db.doj :database_speech/load_db.c 
+	@echo ".\database_speech\load_db.c"
+	$(VDSP)/cc21k.exe -c .\database_speech\load_db.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -si-revision 0.1 -proc ADSP-21262 -o .\Debug\load_db.doj -MM
+
 Debug/main.doj :main.c $(VDSP)/212xx/include/processor_include.h $(VDSP)/212xx/include/21262.h $(VDSP)/212xx/include/platform_include.h $(VDSP)/212xx/include/Cdef21262.h $(VDSP)/212xx/include/Cdef21266.h $(VDSP)/212xx/include/def21262.h $(VDSP)/212xx/include/def21266.h $(VDSP)/212xx/include/builtins.h $(VDSP)/212xx/include/sys/builtins_support.h $(VDSP)/212xx/include/sysreg.h $(VDSP)/212xx/include/signal.h $(VDSP)/212xx/include/string.h $(VDSP)/212xx/include/filter.h $(VDSP)/212xx/include/complex.h $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx/include/stdio_21xxx.h $(VDSP)/212xx/include/stdlib.h framework.h $(VDSP)/212xx/include/def21262.h $(VDSP)/212xx/include/def21266.h $(VDSP)/212xx/include/platform_include.h 
 	@echo ".\main.c"
 	$(VDSP)/cc21k.exe -c .\main.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -si-revision 0.1 -proc ADSP-21262 -o .\Debug\main.doj -MM
@@ -98,9 +102,9 @@ Debug/test_signal.doj :test_signal.c $(VDSP)/212xx/include/stdio.h $(VDSP)/212xx
 	@echo ".\test_signal.c"
 	$(VDSP)/cc21k.exe -c .\test_signal.c -file-attr ProjectName=speechrecognition -g -structs-do-not-overlap -no-multiline -double-size-32 -warn-protos -si-revision 0.1 -proc ADSP-21262 -o .\Debug\test_signal.doj -MM
 
-./Debug/speechrecognition.dxe :$(VDSP)/212xx/ldf/ADSP-21262.LDF $(VDSP)/212xx/lib/2126x_rev_0.0/262_hdr.doj ./Debug/buffer.doj ./Debug/create_subsets.doj ./Debug/cut.doj ./Debug/fft_.doj ./Debug/framework.doj ./Debug/getX.doj ./Debug/hamming.doj ./Debug/level_detect.doj ./Debug/Levinson.doj ./Debug/main.doj ./Debug/matching.doj ./Debug/pre_emph.doj ./Debug/rm_noise.doj ./Debug/speechrecognition.doj ./Debug/test_signal.doj $(VDSP)/212xx/lib/2126x_rev_0.0/libc26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libio.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libdsp26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libcpp.dlb 
+./Debug/speechrecognition.dxe :$(VDSP)/212xx/ldf/ADSP-21262.LDF $(VDSP)/212xx/lib/2126x_rev_0.0/262_hdr.doj ./Debug/buffer.doj ./Debug/create_subsets.doj ./Debug/cut.doj ./Debug/fft_.doj ./Debug/framework.doj ./Debug/getX.doj ./Debug/hamming.doj ./Debug/level_detect.doj ./Debug/Levinson.doj ./Debug/load_db.doj ./Debug/main.doj ./Debug/matching.doj ./Debug/pre_emph.doj ./Debug/rm_noise.doj ./Debug/speechrecognition.doj ./Debug/test_signal.doj $(VDSP)/212xx/lib/2126x_rev_0.0/libc26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libio.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libdsp26x.dlb $(VDSP)/212xx/lib/2126x_rev_0.0/libcpp.dlb 
 	@echo "Linking..."
-	$(VDSP)/cc21k.exe .\Debug\buffer.doj .\Debug\create_subsets.doj .\Debug\cut.doj .\Debug\fft_.doj .\Debug\framework.doj .\Debug\getX.doj .\Debug\hamming.doj .\Debug\level_detect.doj .\Debug\Levinson.doj .\Debug\main.doj .\Debug\matching.doj .\Debug\pre_emph.doj .\Debug\rm_noise.doj .\Debug\speechrecognition.doj .\Debug\test_signal.doj -L .\Debug -add-debug-libpaths -flags-link -od,.\Debug -o .\Debug\speechrecognition.dxe -proc ADSP-21262 -si-revision 0.1 -MM
+	$(VDSP)/cc21k.exe .\Debug\buffer.doj .\Debug\create_subsets.doj .\Debug\cut.doj .\Debug\fft_.doj .\Debug\framework.doj .\Debug\getX.doj .\Debug\hamming.doj .\Debug\level_detect.doj .\Debug\Levinson.doj .\Debug\load_db.doj .\Debug\main.doj .\Debug\matching.doj .\Debug\pre_emph.doj .\Debug\rm_noise.doj .\Debug\speechrecognition.doj .\Debug\test_signal.doj -L .\Debug -add-debug-libpaths -flags-link -od,.\Debug -o .\Debug\speechrecognition.dxe -proc ADSP-21262 -si-revision 0.1 -MM
 
 endif
 
@@ -116,6 +120,7 @@ speechrecognition_Debug_clean:
 	-$(RM) "Debug\hamming.doj"
 	-$(RM) "Debug\level_detect.doj"
 	-$(RM) "Debug\Levinson.doj"
+	-$(RM) "Debug\load_db.doj"
 	-$(RM) "Debug\main.doj"
 	-$(RM) "Debug\matching.doj"
 	-$(RM) "Debug\pre_emph.doj"

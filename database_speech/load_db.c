@@ -1,5 +1,5 @@
-
-#include "load_db.h"
+/*
+#include "type.h"
 
 void load_db(void){
 	block_t b1, b2 ;
@@ -60,4 +60,4 @@ void load_db(void){
 
 
 
-}
+}*/
