@@ -9,7 +9,7 @@ void load_db(void);
 
 typedef struct 
 {
-	block_t version[SUBSETS_LENGTH];
+	block_t versions[SUBSETS_LENGTH];
 } version_t; // a version of a certain word(a subset) 
 
 
