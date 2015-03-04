@@ -1,9 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Analog Devices/VisualDSP 5.1/System/linker_log.xsl"?>
-<DOCUMENT gen_time='Tue Mar 03 16:34:03 2015
+<DOCUMENT gen_time='Wed Mar 04 09:51:14 2015
 '>
-<MSG id='02D82678' mid='li1021' type='Error' >
+<MSG id='02DC0078' mid='li1021' type='Error' >
 <TEXT><![CDATA[The following symbols referenced in processor 'p0' could not be resolved:
-        'dsp_setleds [_dsp_setleds]' referenced from '.\Debug\speechrecognition.doj']]></TEXT>
+        'load_db [_load_db]' referenced from '.\Debug\speechrecognition.doj']]></TEXT>
 </MSG>
 </DOCUMENT>

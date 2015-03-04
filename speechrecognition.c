@@ -8,8 +8,8 @@
 #include <signal.h>
 
 // funktioner och defines
-#include "Levinson.h"
 #include "constants.h"
+#include "Levinson.h"
 #include "rm_noise.h"
 #include "pre_emph.h"
 #include "level_detect.h"
@@ -17,21 +17,16 @@
 #include "cut.h"
 #include "create_subsets.h"
 #include "matching.h"
-//#include "database.h"
 #include "framework.h"
 #include "hamming.h"
-
-// kanske inte nödvändiga här
-#include <complex.h> 
-#include <stats.h> 
-#include <stdlib.h>
-#include <errno.h>
+#include "load_db.h"
 
 // includes för tester
+/*
 #include <string.h>
 #include "fft_.h"
 #include "getX.h"
-#include "test_signal.h"
+#include "test_signal.h"*/
 
 /*
 // testar get_x, iir och pre_emph
@@ -61,18 +56,19 @@ float b5[2] = {9, 10};
 float b6[2] = {11, 12};
 float b7[2] = {13, 14};
 */
-int state = 0;
-block_t record[N_BLOCKS + BUFFER]; // lista med structs som är inspelningen
+
+static block_t record[N_BLOCKS + BUFFER]; // lista med structs som är inspelningen
 static float sample_old[OVERLAP] = {0};
 static float sample_new[OVERLAP] = {0};
 static float current_block[BLOCK_LENGTH];
 static float temp_block[BLOCK_LENGTH];
-static block_t subsets[SUBSET_LENGTH];
+static block_t subset[SUBSET_LENGTH];
 
-
+int state = 0;
 static int counter = 0;
 int run = 1;
 int threshold;
+
 
 void process(int sig){
 
@@ -81,7 +77,7 @@ void process(int sig){
 	int i,j, k;
 	
 	if(state == 0){	// init	
-		sample_t* audioout = dsp_get_audio();
+		//sample_t* audioout = dsp_get_audio();
 		for(i = 0; i < DSP_BLOCK_SIZE; ++i){
 			sample_old[i] = audioin[i].left;
 		}
@@ -111,7 +107,7 @@ void process(int sig){
 			return;				
 		}
 	}
-	if(state == 2 && counter < N_BLOCKS){ // sample 1.5 seconds
+	if(state == 2){ // sample 1.5 seconds
 		for(i = 0; i < DSP_BLOCK_SIZE; ++i){
 			sample_new[i] = audioin[i].left;
 		}	
@@ -131,6 +127,7 @@ void process(int sig){
 			counter = 0;
 			return;
 		}
+		return;
 	}
 	if(state == 3){ // add buffer elements, cut --> subsets
 		i = 0;
@@ -143,11 +140,7 @@ void process(int sig){
 		int first = 0;
 		int last = 0;
 		cut(record, first, last);
-		create_subsets(record, first, last, subsets);
-		state = 4;
-		return;			
-	}	
-	if(state == 4){ // matching
+		create_subsets(record, first, last, subset);
 		//matching();
 		printf("finished!!");
 		dsp_set_leds(63);
@@ -156,6 +149,9 @@ void process(int sig){
 	}
 	return;
 }
+
+
+
 		/*
 	sample_t* audioin = dsp_get_audio();
 	sample_t* audioout = dsp_get_audio();
@@ -275,5 +271,23 @@ int main(void)
 	while(run){
 		idle();	
 	}
+	//load_db();
+	
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
