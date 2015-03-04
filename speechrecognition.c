@@ -22,19 +22,19 @@
 #include "load_db.h"
 
 // includes för tester
-/*
-#include <string.h>
-#include "fft_.h"
-#include "getX.h"
-#include "test_signal.h"*/
 
-/*
+//#include <string.h>
+//#include "fft_.h"
+#include "getX.h"
+//#include "test_signal.h"
+
+
 // testar get_x, iir och pre_emph
 float y[901];
 float x[901];
-float z[901];
-float overlapping_samples[OVERLAP]; // vektor där senaste samplade värdena sparas
-*/
+//float z[901];
+//float overlapping_samples[OVERLAP]; // vektor där senaste samplade värdena sparas
+
 
 /*
 // b1-b6 är till test_signal --> level_detection test
@@ -60,27 +60,29 @@ float b7[2] = {13, 14};
 static block_t record[N_BLOCKS + BUFFER]; // lista med structs som är inspelningen
 static float sample_old[OVERLAP] = {0};
 static float sample_new[OVERLAP] = {0};
+static float sample_temp[OVERLAP] = {0};
 static float current_block[BLOCK_LENGTH];
 static float temp_block[BLOCK_LENGTH];
 static block_t subset[SUBSET_LENGTH];
 
-int state = 0;
+static int state = 0;
 static int counter = 0;
-int run = 1;
 int threshold;
 
 
 void process(int sig){
 
-    
+    /*
     sample_t* audioin = dsp_get_audio();    	
 	int i,j, k;
 	
 	if(state == 0){	// init	
-		//sample_t* audioout = dsp_get_audio();
+		sample_t* audioout = dsp_get_audio();
 		for(i = 0; i < DSP_BLOCK_SIZE; ++i){
-			sample_old[i] = audioin[i].left;
+			sample_temp[i] = audioin[i].left;
 		}
+		rm_noise(sample_temp,sample_old);
+		//pre_emph(temp_block, current_block);
 		threshold = calc_norm(sample_old);
 		set_threshold(threshold);
 		state = 1;
@@ -91,17 +93,17 @@ void process(int sig){
 		for(i = 0; i < DSP_BLOCK_SIZE; ++i){
 			sample_new[i] = audioin[i].left;
 		}
+		rm_noise(sample_new,sample_temp);
+		//pre_emph(temp_block, current_block);
 		for(i = 0; i < OVERLAP; i++){
 			current_block[i] = sample_old[i];
-			current_block[OVERLAP + i] = sample_new[i];
-			sample_old[i] = sample_new[i];
-		}
-		rm_noise(current_block,temp_block);
-		//pre_emph(temp_block, current_block);		
-		if(level_detect(temp_block)){ 
+			current_block[OVERLAP + i] = sample_temp[i];
+			sample_old[i] = sample_temp[i];
+		}		
+		if(level_detect(current_block)){ 
 			dsp_set_leds(7);
-			hamming(temp_block, current_block);				
-			levinson(current_block, record[BUFFER].reflect);
+			hamming(current_block, temp_block);				
+			levinson(temp_block, record[BUFFER].reflect);
 			record[BUFFER].energy = get_energy();
 			state = 2;
 			return;				
@@ -110,17 +112,17 @@ void process(int sig){
 	if(state == 2){ // sample 1.5 seconds
 		for(i = 0; i < DSP_BLOCK_SIZE; ++i){
 			sample_new[i] = audioin[i].left;
-		}	
+		}
+		rm_noise(sample_new,sample_temp);
+		//pre_emph(temp_block, current_block);	
 		for(j = 0; j < OVERLAP; j++){
 			current_block[j] = sample_old[j];
-			current_block[OVERLAP + j] = sample_new[j];
-			sample_old[j] = sample_new[j];
+			current_block[OVERLAP + j] = sample_temp[j];
+			sample_old[j] = sample_temp[j];
 		}
-		rm_noise(current_block,temp_block);
-		//pre_emph(temp_block, current_block);
-		hamming(temp_block, current_block);
-		levinson(current_block, record[BUFFER + 1 + counter].reflect);
-		record[BUFFER + 1 + counter].energy = calc_energy(current_block);
+		hamming(current_block, temp_block);
+		levinson(temp_block, record[BUFFER + 1 + counter].reflect);
+		record[BUFFER + 1 + counter].energy = calc_energy(temp_block);
 		counter = counter + 1;
 		if(counter == N_BLOCKS - 1){
 			state = 3;
@@ -146,9 +148,31 @@ void process(int sig){
 		dsp_set_leds(63);
 		state = 1;
 		return;	
-	}
+	}*/
 	return;
 }
+
+int main(void)
+{	
+	/*int run = 1;
+	dsp_init();
+	
+	interrupt(SIG_SP1, process);
+	
+	dsp_start();
+
+	while(run){
+		idle();	
+	}
+	//load_db();
+	*/
+	get_x(x);
+	rm_noise(x, y);
+	return 0;
+}
+
+
+
 
 
 
@@ -257,31 +281,6 @@ void process(int sig){
 //	level_detect(b6);
 
 }*/
-
-
-
-int main(void)
-{	
-	dsp_init();
-	
-	interrupt(SIG_SP1, process);
-	
-	dsp_start();
-
-	while(run){
-		idle();	
-	}
-	//load_db();
-	
-	return 0;
-}
-
-
-
-
-
-
-
 
 
 

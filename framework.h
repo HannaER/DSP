@@ -2,9 +2,9 @@
 #define framework_h_included
 
 /* Configuration */
-#define DSP_SAMPLE_RATE         8000
-#define DSP_BLOCK_SIZE          80//32
-#define DSP_INPUT_GAIN          10 // 10 dB
+#define DSP_SAMPLE_RATE         8000 
+#define DSP_BLOCK_SIZE          80//32 hur många sampel
+#define DSP_INPUT_GAIN          1 // 10 dB förstärkning
 #define DSP_OUTPUT_ATTENUATION  0
 
 /* Constants */

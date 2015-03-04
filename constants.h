@@ -16,7 +16,7 @@
 #define N_BLOCKS        150 //( (Fs * REC_TIME)*((BLOCK_LENGTH - OVERLAP) ) )
 
 //number of reflection coefficients
-#define N_REFLEC        2//10
+#define N_REFLEC        10
 
 //IsnÂ´t useful yet
 //#define THRESHOLD       0.05   // ska sättas först i run metoden innan allt startar
@@ -28,7 +28,7 @@
 #define BUFFER_SIZE		6 
 
 // number of subsets
-#define SUBSET_LENGTH	3//8
+#define SUBSET_LENGTH	8
 
 #define DB_LENGTH		2 // how many different words there is as db i.e. "höger", "vänster" etc.
 

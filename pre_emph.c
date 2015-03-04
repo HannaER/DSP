@@ -3,7 +3,7 @@
 #include <filter.h>
 
 #define TAPS 1//2
-#define SAMPLES BLOCK_LENGTH
+#define SAMPLES OVERLAP
 
 float pm fircoeffs[TAPS] = {1};//{-0.97, 1};
 static float firstate[TAPS+1] = {0};
