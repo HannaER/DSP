@@ -1,7 +1,7 @@
 #include <filter.h>	
 #include <stdio.h>
 #include "constants.h"
-#define SAMPLES	901//OVERLAP//901 // length of x
+#define SAMPLES	OVERLAP//901 // length of x
 #define SECTIONS 2 	//  rm_noise, pre_emph
 #define GAMMA 	0.5
 

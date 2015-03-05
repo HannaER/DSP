@@ -1,4 +1,5 @@
-#ifndef level_detect
+#ifndef LEVEL_DETECT
+#define LEVEL_DETECT
 
 int level_detect(float* input);
 void set_threshold(float th);

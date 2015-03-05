@@ -1,6 +1,9 @@
-#ifndef matching
+#ifndef MATCHING
+#define MATCHING
 
-void matching(block_t* input);
+#include "load_db.h"
+
+void matching(db_t current_database, version_t input, result_t* result);
 static float real_abs(float value);
 
 #endif

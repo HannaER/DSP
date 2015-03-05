@@ -1,15 +1,12 @@
 #include <stdio.h>
 #include "constants.h"
+#include "matching.h"
 #include <limits.h>
+#include "load_db.h"
+#include <float.h>
 
 
-typedef struct result_t result_t;
 
-
-struct result_t{
-    char* name;
-    float min_err;
-};
 
 
 static float real_abs(float value)
@@ -20,43 +17,34 @@ static float real_abs(float value)
     return value;
 }
 
-// input ska vara en lista med block_t structar i subset form
-// gå igenom databasen och jämföra stoleken på error
-result_t matching(block_t* input, db_t* database){
-    
-    
-    word_t words_from_db[N_WORDS] = database.db;
-    
-    /*
-     
-     
-     for each word in database do:
-     
-        calculate euclidean distance from input to word;
-            << for each element in input, do:
-                    abs(input.element - word.element )
-    
-     */
-    
-    result_t result;
-    result.min_err = INT_MAX;
+void matching(db_t current_database, version_t input, result_t* result){
+   
+	result_t r_temp;
+	
+    r_temp.min_err = FLT_MAX;
     
     
     float error = 0;
-    int i, j, k;
+    int i, j, k, l;
     for(i = 0; i < N_WORDS; ++i){
-        version_t version_of_word = words_from_db[i];
+        word_t temp_word = current_database.words[i]; 
         for(j = 0 ; j < N_VERSIONS; ++j){
-            block_t temp = verson_of_word.versions(j);
-            for(k = 0; k < SUBSETS_LENGTH; ++k){
-                error = error + real_abs(temp.reflect[k] - input.reflect[k]);
-            }
-        }
-        if (error < result.min_err) {
-            result.min_err = error;
-            result.name = words_from_db[i].name;
+            version_t temp_version = temp_word.versions[j];             
+            for(k = 0; k < SUBSET_LENGTH; ++k){
+            	block_t temp_block = temp_version.subset[k];
+            	block_t temp_input = input.subset[k];
+            	for(l = 0; l < N_REFLEC; ++l){
+            		error = error + real_abs(temp_block.reflect[l] - temp_input.reflect[l]);
+           		}
+      	   }
+      	   if (error < r_temp.min_err) {
+      	   		r_temp.min_err = error;
+				r_temp.name = temp_word.name;
+	  	    }
+	  	    error = 0;
+     
         }
     }
-
-	return result;
+	*result = r_temp;
+	return;
 }

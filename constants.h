@@ -1,40 +1,28 @@
 #ifndef CONSTANTS
 #define CONSTANTS
-//Sample rate in Hz
-#define Fs              8000
 
-//The number of samples in each block
-#define BLOCK_LENGTH   	160
+#define Fs              8000  //Sample rate in Hz
 
-//Record for this many seconds
-#define REC_TIME        1.5
+#define BLOCK_LENGTH   	160 //The number of samples in each block
 
-//How many samples will be copied form previous block into present block
-#define OVERLAP         80
+#define REC_TIME        1.5 //Record for this many seconds
+
+#define OVERLAP         80 //How many samples will be copied form previous block into present block
 
 //number of block of one recording.
 #define N_BLOCKS        150 //( (Fs * REC_TIME)*((BLOCK_LENGTH - OVERLAP) ) )
 
-//number of reflection coefficients
-#define N_REFLEC        10
+#define N_REFLEC        9 //number of reflection coefficients
 
-//IsnÂ´t useful yet
-//#define THRESHOLD       0.05   // ska sättas först i run metoden innan allt startar
+#define BUFFER			3 //length of buffer
+ 
+#define BUFFER_SIZE		((BUFFER)*(BLOCK_LENGTH)) //Buffer length in samples.
 
-//length of buffer
-#define BUFFER			3
+#define SUBSET_LENGTH	12 // number of subsets
 
-//Buffer length in samples. 
-#define BUFFER_SIZE		6 
+#define	N_VERSIONS 	2 // number of versions of a certain word
 
-// number of subsets
-#define SUBSET_LENGTH	8
-
-#define DB_LENGTH		2 // how many different words there is as db i.e. "höger", "vänster" etc.
-
-#define	N_VERSIONS 	3 // number of versions of a certain word
-#define	SUBSETS_LENGTH	3 // length of subsets
-#define	N_WORDS		1 // number of different words we match against
+#define	N_WORDS		2 // number of different words we match against
 
 
 
@@ -43,6 +31,30 @@ typedef struct {
 	float reflect[N_REFLEC]; // reflektionskoefficienterna
 } block_t;
 
+typedef struct 
+{
+	block_t subset[SUBSET_LENGTH];
+} version_t; // a version of a certain word(a subset) 
+
+
+typedef struct
+{
+	char* name;
+	version_t versions[N_VERSIONS];
+} word_t; // a list of versions for a certain word
+
+
+typedef struct{
+	float threshold;
+	word_t words[N_WORDS];
+} db_t; //a list of db:s for different words
+
+
+typedef struct 
+{
+	char* name; //name of the word version 
+	float min_err; //smallest error for a version of a word
+} result_t; // matching result for a db for a type of word
 
 
 #endif

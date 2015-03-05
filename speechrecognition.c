@@ -11,7 +11,6 @@
 #include "constants.h"
 #include "Levinson.h"
 #include "rm_noise.h"
-#include "pre_emph.h"
 #include "level_detect.h"
 #include "buffer.h"
 #include "cut.h"
@@ -25,13 +24,13 @@
 
 //#include <string.h>
 //#include "fft_.h"
-#include "getX.h"
+//#include "getX.h"
 //#include "test_signal.h"
 
 
 // testar get_x, iir och pre_emph
-float y[901];
-float x[901];
+//float y[901];
+//float x[901];
 //float z[901];
 //float overlapping_samples[OVERLAP]; // vektor där senaste samplade värdena sparas
 
@@ -63,7 +62,9 @@ static float sample_new[OVERLAP] = {0};
 static float sample_temp[OVERLAP] = {0};
 static float current_block[BLOCK_LENGTH];
 static float temp_block[BLOCK_LENGTH];
-static block_t subset[SUBSET_LENGTH];
+static version_t version;
+static db_t current_db;
+static result_t result;
 
 static int state = 0;
 static int counter = 0;
@@ -72,8 +73,8 @@ int threshold;
 
 void process(int sig){
 
-    /*
-    sample_t* audioin = dsp_get_audio();    	
+
+	sample_t* audioin = dsp_get_audio();    	
 	int i,j, k;
 	
 	if(state == 0){	// init	
@@ -82,7 +83,6 @@ void process(int sig){
 			sample_temp[i] = audioin[i].left;
 		}
 		rm_noise(sample_temp,sample_old);
-		//pre_emph(temp_block, current_block);
 		threshold = calc_norm(sample_old);
 		set_threshold(threshold);
 		state = 1;
@@ -94,7 +94,6 @@ void process(int sig){
 			sample_new[i] = audioin[i].left;
 		}
 		rm_noise(sample_new,sample_temp);
-		//pre_emph(temp_block, current_block);
 		for(i = 0; i < OVERLAP; i++){
 			current_block[i] = sample_old[i];
 			current_block[OVERLAP + i] = sample_temp[i];
@@ -114,7 +113,6 @@ void process(int sig){
 			sample_new[i] = audioin[i].left;
 		}
 		rm_noise(sample_new,sample_temp);
-		//pre_emph(temp_block, current_block);	
 		for(j = 0; j < OVERLAP; j++){
 			current_block[j] = sample_old[j];
 			current_block[OVERLAP + j] = sample_temp[j];
@@ -141,20 +139,24 @@ void process(int sig){
 		}
 		int first = 0;
 		int last = 0;
-		cut(record, first, last);
-		create_subsets(record, first, last, subset);
-		//matching();
-		printf("finished!!");
+		cut(record, &first, &last);
+		create_subsets(record, first, last, &version);
+		matching(current_db, version, &result);
+		printf("The matched word is %s, error: %f \n", result.name, result.min_err);
 		dsp_set_leds(63);
 		state = 1;
+		
 		return;	
-	}*/
+	}
 	return;
 }
 
 int main(void)
 {	
-	/*int run = 1;
+	
+	int run = 1;
+	load_db(&current_db);// init database shit 
+
 	dsp_init();
 	
 	interrupt(SIG_SP1, process);
@@ -164,16 +166,33 @@ int main(void)
 	while(run){
 		idle();	
 	}
-	//load_db();
-	*/
-	get_x(x);
-	rm_noise(x, y);
+	
+
 	return 0;
 }
 
 
+	/*
+	int i ;
+	block_t t1, t2, t3;
+	
+	t1.reflect[0] = 2;
+	t1.reflect[1] = 2;
+	t1.energy = -1;
+	
+	t2.reflect[0] = 2;
+	t2.reflect[1] = 3;
+	t2.energy = -1;
 
-
+	t3.reflect[0] = 3;
+	t3.reflect[1] = 4;
+	t3.energy = -1;
+	
+	version.subset[0] = t1;
+	version.subset[1] = t2;
+	version.subset[2] = t3;
+	
+	matching(current_db, version, result);*/
 
 
 		/*

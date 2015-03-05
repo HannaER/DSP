@@ -23,7 +23,6 @@ int level_detect(float* input){
 	if (new_threshold > 2*threshold){ // 1.12
 		counter = counter + 9;
 		if(counter > 45) {
-		// start sampling N_BLOCKS of sampels
 		output = 1; // true			
 		} else if(counter <= 36) {
 		put(input);
@@ -77,7 +76,7 @@ float calc_energy(float* input){
 	return energy;
 }
 
-float get_energy(){
+float get_energy(void){
 	return energy;
 }
 
