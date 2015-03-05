@@ -6,452 +6,926 @@ void load_db(db_t* current_db){
 	version_t version; 
 	word_t word; 
 	db_t db; 
-	b0.reflect[0] = -0.233854;
-	b0.reflect[1] = 0.780095;
-	b0.reflect[2] = -0.384965;
-	b0.reflect[3] = 0.102594;
-	b0.reflect[4] = -0.153967;
-	b0.reflect[5] = 0.632731;
-	b0.reflect[6] = -0.074205;
-	b0.reflect[7] = 0.321069;
-	b0.reflect[8] = 0.186086;
+	b0.reflect[0] = -0.709548;
+	b0.reflect[1] = 0.467087;
+	b0.reflect[2] = -0.435355;
+	b0.reflect[3] = 0.212454;
+	b0.reflect[4] = 0.063060;
+	b0.reflect[5] = 0.269451;
+	b0.reflect[6] = -0.047524;
+	b0.reflect[7] = -0.216151;
+	b0.reflect[8] = 0.107158;
 	b0.energy = -1;
 
 	version.subset[0] = b0;
  
-	b1.reflect[0] = -0.554818;
-	b1.reflect[1] = 0.505913;
-	b1.reflect[2] = -0.333928;
-	b1.reflect[3] = 0.484225;
-	b1.reflect[4] = -0.019051;
-	b1.reflect[5] = 0.698760;
-	b1.reflect[6] = -0.300135;
-	b1.reflect[7] = -0.213548;
-	b1.reflect[8] = -0.168156;
+	b1.reflect[0] = -0.579143;
+	b1.reflect[1] = 0.531212;
+	b1.reflect[2] = -0.443361;
+	b1.reflect[3] = 0.192730;
+	b1.reflect[4] = 0.094717;
+	b1.reflect[5] = 0.377796;
+	b1.reflect[6] = 0.205421;
+	b1.reflect[7] = -0.375356;
+	b1.reflect[8] = -0.020554;
 	b1.energy = -1;
 
 	version.subset[1] = b1;
  
-	b2.reflect[0] = -0.595709;
-	b2.reflect[1] = 0.535721;
-	b2.reflect[2] = -0.291119;
-	b2.reflect[3] = 0.510209;
-	b2.reflect[4] = -0.010434;
-	b2.reflect[5] = 0.776023;
-	b2.reflect[6] = -0.058471;
-	b2.reflect[7] = -0.120893;
-	b2.reflect[8] = -0.086770;
+	b2.reflect[0] = -0.504940;
+	b2.reflect[1] = 0.241218;
+	b2.reflect[2] = -0.316909;
+	b2.reflect[3] = 0.324717;
+	b2.reflect[4] = -0.046893;
+	b2.reflect[5] = 0.240315;
+	b2.reflect[6] = -0.014368;
+	b2.reflect[7] = -0.148290;
+	b2.reflect[8] = 0.049764;
 	b2.energy = -1;
 
 	version.subset[2] = b2;
  
-	b3.reflect[0] = -0.554060;
-	b3.reflect[1] = 0.487616;
-	b3.reflect[2] = -0.387667;
-	b3.reflect[3] = 0.500444;
-	b3.reflect[4] = -0.087568;
-	b3.reflect[5] = 0.726584;
-	b3.reflect[6] = -0.128257;
-	b3.reflect[7] = -0.044158;
-	b3.reflect[8] = -0.111628;
+	b3.reflect[0] = -0.375329;
+	b3.reflect[1] = 0.022996;
+	b3.reflect[2] = -0.276478;
+	b3.reflect[3] = 0.360840;
+	b3.reflect[4] = 0.162646;
+	b3.reflect[5] = 0.435206;
+	b3.reflect[6] = -0.183103;
+	b3.reflect[7] = -0.024053;
+	b3.reflect[8] = -0.102923;
 	b3.energy = -1;
 
 	version.subset[3] = b3;
  
-	b4.reflect[0] = -0.885413;
-	b4.reflect[1] = 0.500095;
-	b4.reflect[2] = -0.151346;
-	b4.reflect[3] = 0.450632;
-	b4.reflect[4] = -0.199488;
-	b4.reflect[5] = 0.337401;
-	b4.reflect[6] = -0.267954;
-	b4.reflect[7] = 0.012989;
-	b4.reflect[8] = 0.115040;
+	b4.reflect[0] = -0.328463;
+	b4.reflect[1] = 0.053808;
+	b4.reflect[2] = -0.222984;
+	b4.reflect[3] = 0.126447;
+	b4.reflect[4] = 0.005442;
+	b4.reflect[5] = 0.290692;
+	b4.reflect[6] = -0.033472;
+	b4.reflect[7] = -0.019925;
+	b4.reflect[8] = -0.103381;
 	b4.energy = -1;
 
 	version.subset[4] = b4;
  
-	b5.reflect[0] = -0.152006;
-	b5.reflect[1] = 0.489522;
-	b5.reflect[2] = -0.349527;
-	b5.reflect[3] = 0.317532;
-	b5.reflect[4] = -0.068952;
-	b5.reflect[5] = 0.336845;
-	b5.reflect[6] = 0.008120;
-	b5.reflect[7] = 0.016910;
-	b5.reflect[8] = 0.037053;
+	b5.reflect[0] = 0.189753;
+	b5.reflect[1] = 0.075317;
+	b5.reflect[2] = -0.177806;
+	b5.reflect[3] = -0.009187;
+	b5.reflect[4] = -0.173021;
+	b5.reflect[5] = 0.055208;
+	b5.reflect[6] = -0.053886;
+	b5.reflect[7] = 0.218544;
+	b5.reflect[8] = -0.034417;
 	b5.energy = -1;
 
 	version.subset[5] = b5;
  
-	b6.reflect[0] = -0.173309;
-	b6.reflect[1] = 0.264428;
-	b6.reflect[2] = -0.657542;
-	b6.reflect[3] = 0.412632;
-	b6.reflect[4] = 0.171079;
-	b6.reflect[5] = 0.797154;
-	b6.reflect[6] = -0.034811;
-	b6.reflect[7] = 0.122678;
-	b6.reflect[8] = -0.132226;
+	b6.reflect[0] = -0.228114;
+	b6.reflect[1] = -0.013763;
+	b6.reflect[2] = -0.099859;
+	b6.reflect[3] = -0.010244;
+	b6.reflect[4] = -0.027089;
+	b6.reflect[5] = 0.082260;
+	b6.reflect[6] = -0.012518;
+	b6.reflect[7] = 0.046099;
+	b6.reflect[8] = -0.028283;
 	b6.energy = -1;
 
 	version.subset[6] = b6;
  
-	b7.reflect[0] = -0.261449;
-	b7.reflect[1] = 0.452130;
-	b7.reflect[2] = -0.540224;
-	b7.reflect[3] = 0.281311;
-	b7.reflect[4] = 0.104302;
-	b7.reflect[5] = 0.809322;
-	b7.reflect[6] = -0.183178;
-	b7.reflect[7] = 0.221948;
-	b7.reflect[8] = -0.253674;
+	b7.reflect[0] = -0.127828;
+	b7.reflect[1] = -0.005444;
+	b7.reflect[2] = -0.020909;
+	b7.reflect[3] = 0.020793;
+	b7.reflect[4] = -0.003476;
+	b7.reflect[5] = 0.022792;
+	b7.reflect[6] = 0.009909;
+	b7.reflect[7] = -0.004213;
+	b7.reflect[8] = 0.005407;
 	b7.energy = -1;
 
 	version.subset[7] = b7;
  
-	b8.reflect[0] = -0.413864;
-	b8.reflect[1] = 0.247269;
-	b8.reflect[2] = -0.386064;
-	b8.reflect[3] = 0.293356;
-	b8.reflect[4] = -0.103750;
-	b8.reflect[5] = 0.781720;
-	b8.reflect[6] = -0.147927;
-	b8.reflect[7] = 0.014451;
-	b8.reflect[8] = -0.312579;
+	b8.reflect[0] = 0.000000;
+	b8.reflect[1] = 0.000000;
+	b8.reflect[2] = 0.000000;
+	b8.reflect[3] = 0.000000;
+	b8.reflect[4] = 0.000000;
+	b8.reflect[5] = 0.000000;
+	b8.reflect[6] = 0.000000;
+	b8.reflect[7] = 0.000000;
+	b8.reflect[8] = 0.000000;
 	b8.energy = -1;
 
 	version.subset[8] = b8;
  
-	b9.reflect[0] = 0.494338;
-	b9.reflect[1] = 0.475333;
-	b9.reflect[2] = -0.226870;
-	b9.reflect[3] = 0.258370;
-	b9.reflect[4] = -0.164119;
-	b9.reflect[5] = 0.283885;
-	b9.reflect[6] = 0.032445;
-	b9.reflect[7] = 0.216131;
-	b9.reflect[8] = -0.053488;
+	b9.reflect[0] = 0.000000;
+	b9.reflect[1] = 0.000000;
+	b9.reflect[2] = 0.000000;
+	b9.reflect[3] = 0.000000;
+	b9.reflect[4] = 0.000000;
+	b9.reflect[5] = 0.000000;
+	b9.reflect[6] = 0.000000;
+	b9.reflect[7] = 0.000000;
+	b9.reflect[8] = 0.000000;
 	b9.energy = -1;
 
 	version.subset[9] = b9;
  
-	b10.reflect[0] = 0.320271;
-	b10.reflect[1] = 0.426509;
-	b10.reflect[2] = 0.170868;
-	b10.reflect[3] = 0.279532;
-	b10.reflect[4] = 0.131572;
-	b10.reflect[5] = 0.233329;
-	b10.reflect[6] = -0.078000;
-	b10.reflect[7] = -0.069502;
-	b10.reflect[8] = -0.018387;
+	b10.reflect[0] = 0.000000;
+	b10.reflect[1] = 0.000000;
+	b10.reflect[2] = 0.000000;
+	b10.reflect[3] = 0.000000;
+	b10.reflect[4] = 0.000000;
+	b10.reflect[5] = 0.000000;
+	b10.reflect[6] = 0.000000;
+	b10.reflect[7] = 0.000000;
+	b10.reflect[8] = 0.000000;
 	b10.energy = -1;
 
 	version.subset[10] = b10;
  
-	b11.reflect[0] = 0.124300;
-	b11.reflect[1] = 0.164664;
-	b11.reflect[2] = 0.013660;
-	b11.reflect[3] = 0.082621;
-	b11.reflect[4] = 0.019520;
-	b11.reflect[5] = -0.030231;
-	b11.reflect[6] = 0.001368;
-	b11.reflect[7] = 0.118429;
-	b11.reflect[8] = -0.018335;
+	b11.reflect[0] = 0.000000;
+	b11.reflect[1] = 0.000000;
+	b11.reflect[2] = 0.000000;
+	b11.reflect[3] = 0.000000;
+	b11.reflect[4] = 0.000000;
+	b11.reflect[5] = 0.000000;
+	b11.reflect[6] = 0.000000;
+	b11.reflect[7] = 0.000000;
+	b11.reflect[8] = 0.000000;
 	b11.energy = -1;
 
 	version.subset[11] = b11;
  
 	word.versions[0] = version;
  
-	b0.reflect[0] = -0.250975;
-	b0.reflect[1] = 0.809980;
-	b0.reflect[2] = -0.304697;
-	b0.reflect[3] = 0.357597;
-	b0.reflect[4] = -0.034614;
-	b0.reflect[5] = 0.257843;
-	b0.reflect[6] = 0.066620;
-	b0.reflect[7] = 0.277220;
-	b0.reflect[8] = 0.271489;
+	b0.reflect[0] = -0.558362;
+	b0.reflect[1] = 0.541270;
+	b0.reflect[2] = -0.351384;
+	b0.reflect[3] = 0.185252;
+	b0.reflect[4] = -0.099299;
+	b0.reflect[5] = 0.476021;
+	b0.reflect[6] = -0.185498;
+	b0.reflect[7] = -0.162806;
+	b0.reflect[8] = 0.115175;
 	b0.energy = -1;
 
 	version.subset[0] = b0;
  
-	b1.reflect[0] = -0.639669;
-	b1.reflect[1] = 0.558686;
-	b1.reflect[2] = -0.354362;
-	b1.reflect[3] = 0.511033;
-	b1.reflect[4] = -0.021202;
-	b1.reflect[5] = 0.676714;
-	b1.reflect[6] = -0.308268;
-	b1.reflect[7] = -0.094290;
-	b1.reflect[8] = -0.161866;
+	b1.reflect[0] = -0.572681;
+	b1.reflect[1] = 0.602865;
+	b1.reflect[2] = -0.378253;
+	b1.reflect[3] = 0.204814;
+	b1.reflect[4] = 0.019326;
+	b1.reflect[5] = 0.535032;
+	b1.reflect[6] = -0.096559;
+	b1.reflect[7] = -0.267092;
+	b1.reflect[8] = 0.071494;
 	b1.energy = -1;
 
 	version.subset[1] = b1;
  
-	b2.reflect[0] = -0.616534;
-	b2.reflect[1] = 0.542027;
-	b2.reflect[2] = -0.319905;
-	b2.reflect[3] = 0.437135;
-	b2.reflect[4] = 0.038210;
-	b2.reflect[5] = 0.556825;
-	b2.reflect[6] = 0.101343;
-	b2.reflect[7] = -0.239458;
-	b2.reflect[8] = 0.018605;
+	b2.reflect[0] = -0.764283;
+	b2.reflect[1] = 0.483900;
+	b2.reflect[2] = -0.357724;
+	b2.reflect[3] = 0.257141;
+	b2.reflect[4] = -0.003438;
+	b2.reflect[5] = 0.512762;
+	b2.reflect[6] = -0.207922;
+	b2.reflect[7] = -0.142694;
+	b2.reflect[8] = 0.119461;
 	b2.energy = -1;
 
 	version.subset[2] = b2;
  
-	b3.reflect[0] = -0.510513;
-	b3.reflect[1] = 0.539241;
-	b3.reflect[2] = -0.343823;
-	b3.reflect[3] = 0.371790;
-	b3.reflect[4] = -0.123358;
-	b3.reflect[5] = 0.608377;
-	b3.reflect[6] = 0.185385;
-	b3.reflect[7] = -0.155244;
-	b3.reflect[8] = 0.154886;
+	b3.reflect[0] = -0.344866;
+	b3.reflect[1] = -0.033241;
+	b3.reflect[2] = -0.441297;
+	b3.reflect[3] = 0.451703;
+	b3.reflect[4] = -0.002597;
+	b3.reflect[5] = 0.312283;
+	b3.reflect[6] = -0.151708;
+	b3.reflect[7] = 0.077015;
+	b3.reflect[8] = -0.037622;
 	b3.energy = -1;
 
 	version.subset[3] = b3;
  
-	b4.reflect[0] = -0.612526;
-	b4.reflect[1] = 0.482120;
-	b4.reflect[2] = -0.504210;
-	b4.reflect[3] = 0.318267;
-	b4.reflect[4] = 0.032754;
-	b4.reflect[5] = 0.598960;
-	b4.reflect[6] = -0.106745;
-	b4.reflect[7] = -0.097067;
-	b4.reflect[8] = -0.016434;
+	b4.reflect[0] = -0.427548;
+	b4.reflect[1] = 0.110188;
+	b4.reflect[2] = -0.488176;
+	b4.reflect[3] = 0.229700;
+	b4.reflect[4] = 0.041780;
+	b4.reflect[5] = 0.582102;
+	b4.reflect[6] = -0.323484;
+	b4.reflect[7] = 0.031169;
+	b4.reflect[8] = -0.165416;
 	b4.energy = -1;
 
 	version.subset[4] = b4;
  
-	b5.reflect[0] = -0.353355;
-	b5.reflect[1] = 0.553543;
-	b5.reflect[2] = -0.281922;
-	b5.reflect[3] = 0.243904;
-	b5.reflect[4] = -0.001210;
-	b5.reflect[5] = 0.258911;
-	b5.reflect[6] = -0.011384;
-	b5.reflect[7] = 0.124568;
-	b5.reflect[8] = -0.015982;
+	b5.reflect[0] = -0.378550;
+	b5.reflect[1] = 0.030771;
+	b5.reflect[2] = -0.519658;
+	b5.reflect[3] = 0.366119;
+	b5.reflect[4] = 0.088263;
+	b5.reflect[5] = 0.463151;
+	b5.reflect[6] = -0.275444;
+	b5.reflect[7] = 0.050205;
+	b5.reflect[8] = -0.107552;
 	b5.energy = -1;
 
 	version.subset[5] = b5;
  
-	b6.reflect[0] = -0.339049;
-	b6.reflect[1] = 0.012499;
-	b6.reflect[2] = -0.624760;
-	b6.reflect[3] = 0.586039;
-	b6.reflect[4] = 0.367070;
-	b6.reflect[5] = 0.654777;
-	b6.reflect[6] = -0.090743;
-	b6.reflect[7] = 0.009130;
-	b6.reflect[8] = -0.176778;
+	b6.reflect[0] = -0.638260;
+	b6.reflect[1] = -0.211840;
+	b6.reflect[2] = -0.381759;
+	b6.reflect[3] = 0.309270;
+	b6.reflect[4] = -0.062567;
+	b6.reflect[5] = 0.479391;
+	b6.reflect[6] = 0.080705;
+	b6.reflect[7] = 0.133156;
+	b6.reflect[8] = -0.221353;
 	b6.energy = -1;
 
 	version.subset[6] = b6;
  
-	b7.reflect[0] = -0.427900;
-	b7.reflect[1] = 0.236766;
-	b7.reflect[2] = -0.523224;
-	b7.reflect[3] = 0.478828;
-	b7.reflect[4] = 0.240429;
-	b7.reflect[5] = 0.790404;
-	b7.reflect[6] = -0.243950;
-	b7.reflect[7] = 0.143151;
-	b7.reflect[8] = -0.297608;
+	b7.reflect[0] = -0.832308;
+	b7.reflect[1] = 0.010799;
+	b7.reflect[2] = -0.371061;
+	b7.reflect[3] = 0.122160;
+	b7.reflect[4] = -0.046907;
+	b7.reflect[5] = 0.493125;
+	b7.reflect[6] = 0.181419;
+	b7.reflect[7] = 0.071731;
+	b7.reflect[8] = -0.172586;
 	b7.energy = -1;
 
 	version.subset[7] = b7;
  
-	b8.reflect[0] = -0.612213;
-	b8.reflect[1] = 0.275694;
-	b8.reflect[2] = -0.278378;
-	b8.reflect[3] = 0.342089;
-	b8.reflect[4] = 0.216865;
-	b8.reflect[5] = 0.643108;
-	b8.reflect[6] = -0.091672;
-	b8.reflect[7] = -0.166662;
-	b8.reflect[8] = -0.065344;
+	b8.reflect[0] = -0.914204;
+	b8.reflect[1] = 0.007219;
+	b8.reflect[2] = -0.115452;
+	b8.reflect[3] = 0.229912;
+	b8.reflect[4] = 0.097000;
+	b8.reflect[5] = 0.328428;
+	b8.reflect[6] = 0.014699;
+	b8.reflect[7] = 0.077899;
+	b8.reflect[8] = 0.014147;
 	b8.energy = -1;
 
 	version.subset[8] = b8;
  
-	b9.reflect[0] = 0.193298;
-	b9.reflect[1] = 0.303357;
-	b9.reflect[2] = -0.292674;
-	b9.reflect[3] = 0.212156;
-	b9.reflect[4] = -0.158991;
-	b9.reflect[5] = 0.265549;
-	b9.reflect[6] = 0.106193;
-	b9.reflect[7] = 0.256360;
-	b9.reflect[8] = -0.071141;
+	b9.reflect[0] = -0.836959;
+	b9.reflect[1] = -0.149149;
+	b9.reflect[2] = -0.236671;
+	b9.reflect[3] = 0.264474;
+	b9.reflect[4] = -0.028243;
+	b9.reflect[5] = 0.203589;
+	b9.reflect[6] = 0.062829;
+	b9.reflect[7] = 0.055109;
+	b9.reflect[8] = -0.032789;
 	b9.energy = -1;
 
 	version.subset[9] = b9;
  
-	b10.reflect[0] = 0.263959;
-	b10.reflect[1] = 0.466952;
-	b10.reflect[2] = 0.269391;
-	b10.reflect[3] = 0.414495;
-	b10.reflect[4] = -0.131777;
-	b10.reflect[5] = 0.015831;
-	b10.reflect[6] = -0.043726;
-	b10.reflect[7] = 0.041211;
-	b10.reflect[8] = 0.055208;
+	b10.reflect[0] = -0.758027;
+	b10.reflect[1] = -0.038024;
+	b10.reflect[2] = -0.094562;
+	b10.reflect[3] = 0.115278;
+	b10.reflect[4] = 0.055455;
+	b10.reflect[5] = 0.141397;
+	b10.reflect[6] = -0.020119;
+	b10.reflect[7] = 0.102388;
+	b10.reflect[8] = 0.076520;
 	b10.energy = -1;
 
 	version.subset[10] = b10;
  
-	b11.reflect[0] = 0.065639;
-	b11.reflect[1] = 0.214893;
-	b11.reflect[2] = -0.005399;
-	b11.reflect[3] = 0.154134;
-	b11.reflect[4] = 0.028201;
-	b11.reflect[5] = -0.014396;
-	b11.reflect[6] = -0.095262;
-	b11.reflect[7] = 0.083801;
-	b11.reflect[8] = -0.006857;
+	b11.reflect[0] = -0.626089;
+	b11.reflect[1] = -0.068638;
+	b11.reflect[2] = -0.098286;
+	b11.reflect[3] = 0.166975;
+	b11.reflect[4] = 0.024058;
+	b11.reflect[5] = 0.080452;
+	b11.reflect[6] = -0.003198;
+	b11.reflect[7] = 0.057778;
+	b11.reflect[8] = 0.060277;
 	b11.energy = -1;
 
 	version.subset[11] = b11;
  
 	word.versions[1] = version;
+ 
+	b0.reflect[0] = -0.701005;
+	b0.reflect[1] = 0.409986;
+	b0.reflect[2] = -0.212436;
+	b0.reflect[3] = 0.271191;
+	b0.reflect[4] = -0.231541;
+	b0.reflect[5] = 0.367969;
+	b0.reflect[6] = -0.198983;
+	b0.reflect[7] = -0.199825;
+	b0.reflect[8] = -0.034453;
+	b0.energy = -1;
+
+	version.subset[0] = b0;
+ 
+	b1.reflect[0] = -0.696705;
+	b1.reflect[1] = 0.505549;
+	b1.reflect[2] = -0.204733;
+	b1.reflect[3] = 0.263673;
+	b1.reflect[4] = -0.118524;
+	b1.reflect[5] = 0.306604;
+	b1.reflect[6] = -0.148110;
+	b1.reflect[7] = -0.246455;
+	b1.reflect[8] = -0.051406;
+	b1.energy = -1;
+
+	version.subset[1] = b1;
+ 
+	b2.reflect[0] = -0.592652;
+	b2.reflect[1] = 0.567102;
+	b2.reflect[2] = -0.278119;
+	b2.reflect[3] = 0.223483;
+	b2.reflect[4] = 0.014007;
+	b2.reflect[5] = 0.390187;
+	b2.reflect[6] = -0.063027;
+	b2.reflect[7] = -0.320816;
+	b2.reflect[8] = 0.079213;
+	b2.energy = -1;
+
+	version.subset[2] = b2;
+ 
+	b3.reflect[0] = -0.529747;
+	b3.reflect[1] = 0.580873;
+	b3.reflect[2] = -0.344778;
+	b3.reflect[3] = 0.161813;
+	b3.reflect[4] = -0.097803;
+	b3.reflect[5] = 0.493081;
+	b3.reflect[6] = -0.066283;
+	b3.reflect[7] = -0.229284;
+	b3.reflect[8] = 0.037274;
+	b3.energy = -1;
+
+	version.subset[3] = b3;
+ 
+	b4.reflect[0] = -0.574709;
+	b4.reflect[1] = 0.576636;
+	b4.reflect[2] = -0.358221;
+	b4.reflect[3] = 0.195010;
+	b4.reflect[4] = 0.071831;
+	b4.reflect[5] = 0.471783;
+	b4.reflect[6] = -0.033984;
+	b4.reflect[7] = -0.388419;
+	b4.reflect[8] = 0.043318;
+	b4.energy = -1;
+
+	version.subset[4] = b4;
+ 
+	b5.reflect[0] = -0.606851;
+	b5.reflect[1] = 0.601419;
+	b5.reflect[2] = -0.338088;
+	b5.reflect[3] = 0.275051;
+	b5.reflect[4] = 0.077779;
+	b5.reflect[5] = 0.581192;
+	b5.reflect[6] = -0.119287;
+	b5.reflect[7] = -0.311683;
+	b5.reflect[8] = -0.021692;
+	b5.energy = -1;
+
+	version.subset[5] = b5;
+ 
+	b6.reflect[0] = -0.554734;
+	b6.reflect[1] = 0.635109;
+	b6.reflect[2] = -0.401113;
+	b6.reflect[3] = 0.195044;
+	b6.reflect[4] = 0.107802;
+	b6.reflect[5] = 0.583249;
+	b6.reflect[6] = -0.034815;
+	b6.reflect[7] = -0.298778;
+	b6.reflect[8] = 0.016254;
+	b6.energy = -1;
+
+	version.subset[6] = b6;
+ 
+	b7.reflect[0] = -0.606784;
+	b7.reflect[1] = 0.541271;
+	b7.reflect[2] = -0.299513;
+	b7.reflect[3] = 0.317240;
+	b7.reflect[4] = 0.000395;
+	b7.reflect[5] = 0.523518;
+	b7.reflect[6] = -0.035087;
+	b7.reflect[7] = -0.285333;
+	b7.reflect[8] = 0.133404;
+	b7.energy = -1;
+
+	version.subset[7] = b7;
+ 
+	b8.reflect[0] = -0.607506;
+	b8.reflect[1] = 0.537990;
+	b8.reflect[2] = -0.265430;
+	b8.reflect[3] = 0.296697;
+	b8.reflect[4] = -0.073378;
+	b8.reflect[5] = 0.604336;
+	b8.reflect[6] = -0.024000;
+	b8.reflect[7] = -0.307266;
+	b8.reflect[8] = 0.075745;
+	b8.energy = -1;
+
+	version.subset[8] = b8;
+ 
+	b9.reflect[0] = -0.564269;
+	b9.reflect[1] = 0.563908;
+	b9.reflect[2] = -0.399433;
+	b9.reflect[3] = 0.152005;
+	b9.reflect[4] = 0.013900;
+	b9.reflect[5] = 0.500832;
+	b9.reflect[6] = -0.046222;
+	b9.reflect[7] = -0.358598;
+	b9.reflect[8] = 0.137027;
+	b9.energy = -1;
+
+	version.subset[9] = b9;
+ 
+	b10.reflect[0] = -0.532195;
+	b10.reflect[1] = 0.569618;
+	b10.reflect[2] = -0.404249;
+	b10.reflect[3] = 0.103262;
+	b10.reflect[4] = -0.073058;
+	b10.reflect[5] = 0.505585;
+	b10.reflect[6] = -0.094085;
+	b10.reflect[7] = -0.348500;
+	b10.reflect[8] = 0.121309;
+	b10.energy = -1;
+
+	version.subset[10] = b10;
+ 
+	b11.reflect[0] = 0;
+	b11.reflect[1] = 0;
+	b11.reflect[2] = 0;
+	b11.reflect[3] = 0;
+	b11.reflect[4] = 0;
+	b11.reflect[5] = 0;
+	b11.reflect[6] = 0;
+	b11.reflect[7] = 0;
+	b11.reflect[8] = 0;
+	b11.energy = -1;
+
+	version.subset[11] = b11;
+ 
+	word.versions[2] = version;
+ 
+	b0.reflect[0] = -0.651649;
+	b0.reflect[1] = 0.440952;
+	b0.reflect[2] = -0.355127;
+	b0.reflect[3] = 0.226911;
+	b0.reflect[4] = -0.192819;
+	b0.reflect[5] = 0.541373;
+	b0.reflect[6] = -0.231939;
+	b0.reflect[7] = -0.200191;
+	b0.reflect[8] = 0.046537;
+	b0.energy = -1;
+
+	version.subset[0] = b0;
+ 
+	b1.reflect[0] = -0.560864;
+	b1.reflect[1] = 0.526408;
+	b1.reflect[2] = -0.357897;
+	b1.reflect[3] = 0.206702;
+	b1.reflect[4] = -0.271804;
+	b1.reflect[5] = 0.573738;
+	b1.reflect[6] = -0.178834;
+	b1.reflect[7] = -0.217776;
+	b1.reflect[8] = 0.027262;
+	b1.energy = -1;
+
+	version.subset[1] = b1;
+ 
+	b2.reflect[0] = -0.750094;
+	b2.reflect[1] = 0.376447;
+	b2.reflect[2] = -0.324549;
+	b2.reflect[3] = 0.263834;
+	b2.reflect[4] = -0.179163;
+	b2.reflect[5] = 0.497521;
+	b2.reflect[6] = -0.205873;
+	b2.reflect[7] = -0.163170;
+	b2.reflect[8] = 0.091352;
+	b2.energy = -1;
+
+	version.subset[2] = b2;
+ 
+	b3.reflect[0] = -0.360292;
+	b3.reflect[1] = 0.349542;
+	b3.reflect[2] = -0.540756;
+	b3.reflect[3] = 0.225385;
+	b3.reflect[4] = -0.129819;
+	b3.reflect[5] = 0.249339;
+	b3.reflect[6] = -0.109809;
+	b3.reflect[7] = 0.008204;
+	b3.reflect[8] = -0.072557;
+	b3.energy = -1;
+
+	version.subset[3] = b3;
+ 
+	b4.reflect[0] = -0.649616;
+	b4.reflect[1] = -0.031078;
+	b4.reflect[2] = -0.412936;
+	b4.reflect[3] = 0.621859;
+	b4.reflect[4] = 0.209044;
+	b4.reflect[5] = 0.373239;
+	b4.reflect[6] = -0.210550;
+	b4.reflect[7] = 0.066435;
+	b4.reflect[8] = -0.093354;
+	b4.energy = -1;
+
+	version.subset[4] = b4;
+ 
+	b5.reflect[0] = -0.584218;
+	b5.reflect[1] = 0.220631;
+	b5.reflect[2] = -0.379606;
+	b5.reflect[3] = 0.432129;
+	b5.reflect[4] = 0.113487;
+	b5.reflect[5] = 0.572546;
+	b5.reflect[6] = -0.343483;
+	b5.reflect[7] = -0.135340;
+	b5.reflect[8] = -0.039207;
+	b5.energy = -1;
+
+	version.subset[5] = b5;
+ 
+	b6.reflect[0] = -0.548953;
+	b6.reflect[1] = 0.008518;
+	b6.reflect[2] = -0.183665;
+	b6.reflect[3] = 0.316834;
+	b6.reflect[4] = 0.002671;
+	b6.reflect[5] = 0.284968;
+	b6.reflect[6] = -0.084812;
+	b6.reflect[7] = -0.137742;
+	b6.reflect[8] = -0.124696;
+	b6.energy = -1;
+
+	version.subset[6] = b6;
+ 
+	b7.reflect[0] = 0.208861;
+	b7.reflect[1] = 0.095841;
+	b7.reflect[2] = -0.443175;
+	b7.reflect[3] = -0.109948;
+	b7.reflect[4] = -0.008733;
+	b7.reflect[5] = 0.295570;
+	b7.reflect[6] = -0.127373;
+	b7.reflect[7] = 0.125699;
+	b7.reflect[8] = -0.103822;
+	b7.energy = -1;
+
+	version.subset[7] = b7;
+ 
+	b8.reflect[0] = -0.076070;
+	b8.reflect[1] = -0.034174;
+	b8.reflect[2] = -0.207671;
+	b8.reflect[3] = 0.065078;
+	b8.reflect[4] = -0.183097;
+	b8.reflect[5] = 0.096447;
+	b8.reflect[6] = 0.020914;
+	b8.reflect[7] = 0.103244;
+	b8.reflect[8] = -0.135640;
+	b8.energy = -1;
+
+	version.subset[8] = b8;
+ 
+	b9.reflect[0] = -0.155650;
+	b9.reflect[1] = -0.033915;
+	b9.reflect[2] = -0.080371;
+	b9.reflect[3] = 0.025303;
+	b9.reflect[4] = -0.043345;
+	b9.reflect[5] = 0.109626;
+	b9.reflect[6] = 0.004511;
+	b9.reflect[7] = -0.003465;
+	b9.reflect[8] = -0.010510;
+	b9.energy = -1;
+
+	version.subset[9] = b9;
+ 
+	b10.reflect[0] = 0.000000;
+	b10.reflect[1] = 0.000000;
+	b10.reflect[2] = 0.000000;
+	b10.reflect[3] = 0.000000;
+	b10.reflect[4] = 0.000000;
+	b10.reflect[5] = 0.000000;
+	b10.reflect[6] = 0.000000;
+	b10.reflect[7] = 0.000000;
+	b10.reflect[8] = 0.000000;
+	b10.energy = -1;
+
+	version.subset[10] = b10;
+ 
+	b11.reflect[0] = 0.000000;
+	b11.reflect[1] = 0.000000;
+	b11.reflect[2] = 0.000000;
+	b11.reflect[3] = 0.000000;
+	b11.reflect[4] = 0.000000;
+	b11.reflect[5] = 0.000000;
+	b11.reflect[6] = 0.000000;
+	b11.reflect[7] = 0.000000;
+	b11.reflect[8] = 0.000000;
+	b11.energy = -1;
+
+	version.subset[11] = b11;
+ 
+	word.versions[3] = version;
+ 
+	b0.reflect[0] = -0.633788;
+	b0.reflect[1] = 0.662168;
+	b0.reflect[2] = -0.279253;
+	b0.reflect[3] = 0.218468;
+	b0.reflect[4] = -0.326384;
+	b0.reflect[5] = 0.411799;
+	b0.reflect[6] = 0.001953;
+	b0.reflect[7] = -0.401656;
+	b0.reflect[8] = 0.105708;
+	b0.energy = -1;
+
+	version.subset[0] = b0;
+ 
+	b1.reflect[0] = -0.619935;
+	b1.reflect[1] = 0.697172;
+	b1.reflect[2] = -0.259065;
+	b1.reflect[3] = 0.219734;
+	b1.reflect[4] = -0.282461;
+	b1.reflect[5] = 0.427279;
+	b1.reflect[6] = -0.006669;
+	b1.reflect[7] = -0.360778;
+	b1.reflect[8] = 0.065785;
+	b1.energy = -1;
+
+	version.subset[1] = b1;
+ 
+	b2.reflect[0] = -0.620089;
+	b2.reflect[1] = 0.715849;
+	b2.reflect[2] = -0.333602;
+	b2.reflect[3] = 0.150613;
+	b2.reflect[4] = -0.180128;
+	b2.reflect[5] = 0.431700;
+	b2.reflect[6] = -0.046971;
+	b2.reflect[7] = -0.257742;
+	b2.reflect[8] = 0.022271;
+	b2.energy = -1;
+
+	version.subset[2] = b2;
+ 
+	b3.reflect[0] = -0.674719;
+	b3.reflect[1] = 0.608095;
+	b3.reflect[2] = -0.221610;
+	b3.reflect[3] = 0.275524;
+	b3.reflect[4] = -0.360196;
+	b3.reflect[5] = 0.516235;
+	b3.reflect[6] = -0.100921;
+	b3.reflect[7] = -0.219165;
+	b3.reflect[8] = 0.006138;
+	b3.energy = -1;
+
+	version.subset[3] = b3;
+ 
+	b4.reflect[0] = -0.665044;
+	b4.reflect[1] = 0.615990;
+	b4.reflect[2] = -0.275757;
+	b4.reflect[3] = 0.284571;
+	b4.reflect[4] = -0.261549;
+	b4.reflect[5] = 0.429948;
+	b4.reflect[6] = 0.010382;
+	b4.reflect[7] = -0.258095;
+	b4.reflect[8] = -0.009567;
+	b4.energy = -1;
+
+	version.subset[4] = b4;
+ 
+	b5.reflect[0] = -0.731127;
+	b5.reflect[1] = 0.695085;
+	b5.reflect[2] = -0.292937;
+	b5.reflect[3] = 0.303863;
+	b5.reflect[4] = -0.106612;
+	b5.reflect[5] = 0.343002;
+	b5.reflect[6] = -0.059968;
+	b5.reflect[7] = -0.281760;
+	b5.reflect[8] = 0.046752;
+	b5.energy = -1;
+
+	version.subset[5] = b5;
+ 
+	b6.reflect[0] = -0.705962;
+	b6.reflect[1] = 0.655986;
+	b6.reflect[2] = -0.360041;
+	b6.reflect[3] = 0.251176;
+	b6.reflect[4] = -0.091382;
+	b6.reflect[5] = 0.396416;
+	b6.reflect[6] = -0.113082;
+	b6.reflect[7] = -0.238879;
+	b6.reflect[8] = 0.053691;
+	b6.energy = -1;
+
+	version.subset[6] = b6;
+ 
+	b7.reflect[0] = -0.698282;
+	b7.reflect[1] = 0.657970;
+	b7.reflect[2] = -0.369741;
+	b7.reflect[3] = 0.240682;
+	b7.reflect[4] = -0.022573;
+	b7.reflect[5] = 0.451047;
+	b7.reflect[6] = 0.043091;
+	b7.reflect[7] = -0.330681;
+	b7.reflect[8] = -0.090717;
+	b7.energy = -1;
+
+	version.subset[7] = b7;
+ 
+	b8.reflect[0] = -0.678010;
+	b8.reflect[1] = 0.650035;
+	b8.reflect[2] = -0.385383;
+	b8.reflect[3] = 0.198702;
+	b8.reflect[4] = -0.087946;
+	b8.reflect[5] = 0.393575;
+	b8.reflect[6] = 0.095286;
+	b8.reflect[7] = -0.315011;
+	b8.reflect[8] = -0.077394;
+	b8.energy = -1;
+
+	version.subset[8] = b8;
+ 
+	b9.reflect[0] = 0;
+	b9.reflect[1] = 0;
+	b9.reflect[2] = 0;
+	b9.reflect[3] = 0;
+	b9.reflect[4] = 0;
+	b9.reflect[5] = 0;
+	b9.reflect[6] = 0;
+	b9.reflect[7] = 0;
+	b9.reflect[8] = 0;
+	b9.energy = -1;
+
+	version.subset[9] = b9;
+ 
+	b10.reflect[0] = 0;
+	b10.reflect[1] = 0;
+	b10.reflect[2] = 0;
+	b10.reflect[3] = 0;
+	b10.reflect[4] = 0;
+	b10.reflect[5] = 0;
+	b10.reflect[6] = 0;
+	b10.reflect[7] = 0;
+	b10.reflect[8] = 0;
+	b10.energy = -1;
+
+	version.subset[10] = b10;
+ 
+	b11.reflect[0] = 0;
+	b11.reflect[1] = 0;
+	b11.reflect[2] = 0;
+	b11.reflect[3] = 0;
+	b11.reflect[4] = 0;
+	b11.reflect[5] = 0;
+	b11.reflect[6] = 0;
+	b11.reflect[7] = 0;
+	b11.reflect[8] = 0;
+	b11.energy = -1;
+
+	version.subset[11] = b11;
+ 
+	word.versions[4] = version;
  
 	word.name = "right";
  
 	db.words[0] = word;
  
-	b0.reflect[0] = -0.902626;
-	b0.reflect[1] = 0.638956;
-	b0.reflect[2] = -0.020352;
-	b0.reflect[3] = 0.059336;
-	b0.reflect[4] = 0.031404;
-	b0.reflect[5] = 0.060024;
-	b0.reflect[6] = -0.031052;
-	b0.reflect[7] = 0.095793;
-	b0.reflect[8] = 0.095205;
+	b0.reflect[0] = -0.829639;
+	b0.reflect[1] = -0.117953;
+	b0.reflect[2] = -0.154491;
+	b0.reflect[3] = 0.235716;
+	b0.reflect[4] = 0.029038;
+	b0.reflect[5] = 0.187732;
+	b0.reflect[6] = 0.013591;
+	b0.reflect[7] = 0.078886;
+	b0.reflect[8] = 0.031569;
 	b0.energy = -1;
 
 	version.subset[0] = b0;
  
-	b1.reflect[0] = -0.401518;
-	b1.reflect[1] = 0.576899;
-	b1.reflect[2] = -0.508998;
-	b1.reflect[3] = 0.185359;
-	b1.reflect[4] = 0.157308;
-	b1.reflect[5] = 0.521100;
-	b1.reflect[6] = 0.059371;
-	b1.reflect[7] = 0.192473;
-	b1.reflect[8] = 0.038284;
+	b1.reflect[0] = -0.850694;
+	b1.reflect[1] = -0.108150;
+	b1.reflect[2] = -0.092738;
+	b1.reflect[3] = 0.164401;
+	b1.reflect[4] = -0.008103;
+	b1.reflect[5] = 0.099976;
+	b1.reflect[6] = -0.009331;
+	b1.reflect[7] = 0.087596;
+	b1.reflect[8] = -0.039418;
 	b1.energy = -1;
 
 	version.subset[1] = b1;
  
-	b2.reflect[0] = -0.539290;
-	b2.reflect[1] = 0.532589;
-	b2.reflect[2] = -0.446626;
-	b2.reflect[3] = 0.269259;
-	b2.reflect[4] = 0.270615;
-	b2.reflect[5] = 0.539156;
-	b2.reflect[6] = -0.149042;
-	b2.reflect[7] = 0.238357;
-	b2.reflect[8] = -0.130225;
+	b2.reflect[0] = -0.896043;
+	b2.reflect[1] = -0.097023;
+	b2.reflect[2] = -0.183786;
+	b2.reflect[3] = 0.245662;
+	b2.reflect[4] = 0.042467;
+	b2.reflect[5] = 0.157670;
+	b2.reflect[6] = -0.070928;
+	b2.reflect[7] = 0.055973;
+	b2.reflect[8] = 0.041197;
 	b2.energy = -1;
 
 	version.subset[2] = b2;
  
-	b3.reflect[0] = -0.894357;
-	b3.reflect[1] = 0.488314;
-	b3.reflect[2] = -0.406502;
-	b3.reflect[3] = 0.366652;
-	b3.reflect[4] = 0.296349;
-	b3.reflect[5] = 0.388228;
-	b3.reflect[6] = -0.604210;
-	b3.reflect[7] = 0.069104;
-	b3.reflect[8] = -0.151063;
+	b3.reflect[0] = -0.787154;
+	b3.reflect[1] = -0.065623;
+	b3.reflect[2] = -0.133405;
+	b3.reflect[3] = 0.117426;
+	b3.reflect[4] = 0.065661;
+	b3.reflect[5] = 0.167901;
+	b3.reflect[6] = 0.004765;
+	b3.reflect[7] = 0.010042;
+	b3.reflect[8] = -0.111682;
 	b3.energy = -1;
 
 	version.subset[3] = b3;
  
-	b4.reflect[0] = -0.748287;
-	b4.reflect[1] = 0.360267;
-	b4.reflect[2] = -0.294567;
-	b4.reflect[3] = 0.459165;
-	b4.reflect[4] = 0.061160;
-	b4.reflect[5] = 0.112749;
-	b4.reflect[6] = -0.257275;
-	b4.reflect[7] = 0.019899;
-	b4.reflect[8] = -0.098836;
+	b4.reflect[0] = -0.668605;
+	b4.reflect[1] = -0.078734;
+	b4.reflect[2] = -0.089612;
+	b4.reflect[3] = 0.185068;
+	b4.reflect[4] = -0.011819;
+	b4.reflect[5] = 0.110831;
+	b4.reflect[6] = 0.038921;
+	b4.reflect[7] = 0.058490;
+	b4.reflect[8] = -0.016096;
 	b4.energy = -1;
 
 	version.subset[4] = b4;
  
-	b5.reflect[0] = 0.249236;
-	b5.reflect[1] = 0.049155;
-	b5.reflect[2] = 0.029762;
-	b5.reflect[3] = -0.111367;
-	b5.reflect[4] = -0.363067;
-	b5.reflect[5] = 0.156024;
-	b5.reflect[6] = -0.001351;
-	b5.reflect[7] = 0.027194;
-	b5.reflect[8] = -0.033422;
+	b5.reflect[0] = -0.530561;
+	b5.reflect[1] = -0.080517;
+	b5.reflect[2] = -0.117084;
+	b5.reflect[3] = 0.087926;
+	b5.reflect[4] = 0.035997;
+	b5.reflect[5] = 0.092426;
+	b5.reflect[6] = -0.003540;
+	b5.reflect[7] = 0.090287;
+	b5.reflect[8] = 0.010532;
 	b5.energy = -1;
 
 	version.subset[5] = b5;
  
-	b6.reflect[0] = 0.228986;
-	b6.reflect[1] = 0.156227;
-	b6.reflect[2] = -0.063027;
-	b6.reflect[3] = -0.015517;
-	b6.reflect[4] = -0.246701;
-	b6.reflect[5] = 0.122460;
-	b6.reflect[6] = -0.139922;
-	b6.reflect[7] = 0.103766;
-	b6.reflect[8] = 0.061875;
+	b6.reflect[0] = -0.393218;
+	b6.reflect[1] = -0.039498;
+	b6.reflect[2] = -0.051930;
+	b6.reflect[3] = 0.091143;
+	b6.reflect[4] = -0.044320;
+	b6.reflect[5] = 0.032748;
+	b6.reflect[6] = -0.027933;
+	b6.reflect[7] = 0.102456;
+	b6.reflect[8] = 0.013511;
 	b6.energy = -1;
 
 	version.subset[6] = b6;
  
-	b7.reflect[0] = -0.106369;
-	b7.reflect[1] = 0.068192;
-	b7.reflect[2] = -0.257519;
-	b7.reflect[3] = -0.016317;
-	b7.reflect[4] = -0.152256;
-	b7.reflect[5] = 0.081309;
-	b7.reflect[6] = -0.095982;
-	b7.reflect[7] = 0.049328;
-	b7.reflect[8] = 0.049209;
+	b7.reflect[0] = -0.252566;
+	b7.reflect[1] = -0.023339;
+	b7.reflect[2] = -0.088950;
+	b7.reflect[3] = 0.038792;
+	b7.reflect[4] = -0.004817;
+	b7.reflect[5] = 0.051667;
+	b7.reflect[6] = -0.034415;
+	b7.reflect[7] = 0.037750;
+	b7.reflect[8] = -0.022763;
 	b7.energy = -1;
 
 	version.subset[7] = b7;
  
-	b8.reflect[0] = -0.373237;
-	b8.reflect[1] = 0.276081;
-	b8.reflect[2] = -0.249082;
-	b8.reflect[3] = 0.279931;
-	b8.reflect[4] = 0.163043;
-	b8.reflect[5] = 0.243495;
-	b8.reflect[6] = -0.186187;
-	b8.reflect[7] = 0.126928;
-	b8.reflect[8] = -0.129027;
+	b8.reflect[0] = -0.134544;
+	b8.reflect[1] = 0.010701;
+	b8.reflect[2] = 0.007953;
+	b8.reflect[3] = 0.048005;
+	b8.reflect[4] = 0.027714;
+	b8.reflect[5] = 0.038578;
+	b8.reflect[6] = 0.000205;
+	b8.reflect[7] = 0.035826;
+	b8.reflect[8] = -0.015622;
 	b8.energy = -1;
 
 	version.subset[8] = b8;
  
-	b9.reflect[0] = -0.135884;
-	b9.reflect[1] = 0.118782;
-	b9.reflect[2] = -0.114711;
-	b9.reflect[3] = 0.103717;
-	b9.reflect[4] = 0.071040;
-	b9.reflect[5] = 0.125190;
-	b9.reflect[6] = -0.065123;
-	b9.reflect[7] = 0.057659;
-	b9.reflect[8] = -0.005259;
+	b9.reflect[0] = 0.000000;
+	b9.reflect[1] = 0.000000;
+	b9.reflect[2] = 0.000000;
+	b9.reflect[3] = 0.000000;
+	b9.reflect[4] = 0.000000;
+	b9.reflect[5] = 0.000000;
+	b9.reflect[6] = 0.000000;
+	b9.reflect[7] = 0.000000;
+	b9.reflect[8] = 0.000000;
 	b9.energy = -1;
 
 	version.subset[9] = b9;
@@ -484,132 +958,448 @@ void load_db(db_t* current_db){
  
 	word.versions[0] = version;
  
-	b0.reflect[0] = -0.484308;
-	b0.reflect[1] = 0.298220;
-	b0.reflect[2] = -0.311603;
-	b0.reflect[3] = 0.140886;
-	b0.reflect[4] = 0.230661;
-	b0.reflect[5] = 0.048802;
-	b0.reflect[6] = 0.150540;
-	b0.reflect[7] = 0.043761;
-	b0.reflect[8] = -0.017910;
+	b0.reflect[0] = -0.628733;
+	b0.reflect[1] = 0.325416;
+	b0.reflect[2] = -0.526303;
+	b0.reflect[3] = 0.284939;
+	b0.reflect[4] = 0.218671;
+	b0.reflect[5] = 0.297338;
+	b0.reflect[6] = -0.297278;
+	b0.reflect[7] = 0.029655;
+	b0.reflect[8] = -0.207106;
 	b0.energy = -1;
 
 	version.subset[0] = b0;
  
-	b1.reflect[0] = -0.408220;
-	b1.reflect[1] = 0.569667;
-	b1.reflect[2] = -0.550851;
-	b1.reflect[3] = 0.279118;
-	b1.reflect[4] = 0.223075;
-	b1.reflect[5] = 0.499214;
-	b1.reflect[6] = 0.152041;
-	b1.reflect[7] = 0.062779;
-	b1.reflect[8] = -0.042087;
+	b1.reflect[0] = -0.947230;
+	b1.reflect[1] = 0.417303;
+	b1.reflect[2] = -0.132205;
+	b1.reflect[3] = 0.326867;
+	b1.reflect[4] = 0.333258;
+	b1.reflect[5] = 0.426519;
+	b1.reflect[6] = -0.427836;
+	b1.reflect[7] = 0.138493;
+	b1.reflect[8] = -0.293036;
 	b1.energy = -1;
 
 	version.subset[1] = b1;
  
-	b2.reflect[0] = -0.490924;
-	b2.reflect[1] = 0.549391;
-	b2.reflect[2] = -0.512399;
-	b2.reflect[3] = 0.322164;
-	b2.reflect[4] = 0.361926;
-	b2.reflect[5] = 0.565181;
-	b2.reflect[6] = -0.057829;
-	b2.reflect[7] = 0.201093;
-	b2.reflect[8] = -0.238907;
+	b2.reflect[0] = -0.971331;
+	b2.reflect[1] = 0.537267;
+	b2.reflect[2] = 0.081146;
+	b2.reflect[3] = 0.365216;
+	b2.reflect[4] = 0.207240;
+	b2.reflect[5] = 0.391154;
+	b2.reflect[6] = -0.402856;
+	b2.reflect[7] = 0.006438;
+	b2.reflect[8] = -0.095921;
 	b2.energy = -1;
 
 	version.subset[2] = b2;
  
-	b3.reflect[0] = -0.918195;
-	b3.reflect[1] = 0.494736;
-	b3.reflect[2] = -0.356421;
-	b3.reflect[3] = 0.437099;
-	b3.reflect[4] = 0.222193;
-	b3.reflect[5] = 0.309438;
-	b3.reflect[6] = -0.540732;
-	b3.reflect[7] = 0.179353;
-	b3.reflect[8] = -0.028278;
+	b3.reflect[0] = -0.838954;
+	b3.reflect[1] = -0.033876;
+	b3.reflect[2] = -0.344607;
+	b3.reflect[3] = 0.116095;
+	b3.reflect[4] = 0.271929;
+	b3.reflect[5] = 0.326813;
+	b3.reflect[6] = 0.058593;
+	b3.reflect[7] = 0.052375;
+	b3.reflect[8] = -0.059874;
 	b3.energy = -1;
 
 	version.subset[3] = b3;
  
-	b4.reflect[0] = -0.611443;
-	b4.reflect[1] = 0.439582;
-	b4.reflect[2] = -0.197407;
-	b4.reflect[3] = 0.009171;
-	b4.reflect[4] = 0.086548;
-	b4.reflect[5] = 0.118347;
-	b4.reflect[6] = -0.074465;
-	b4.reflect[7] = 0.205022;
-	b4.reflect[8] = 0.045188;
+	b4.reflect[0] = -0.898719;
+	b4.reflect[1] = -0.086562;
+	b4.reflect[2] = -0.252675;
+	b4.reflect[3] = 0.171621;
+	b4.reflect[4] = 0.016274;
+	b4.reflect[5] = 0.202466;
+	b4.reflect[6] = -0.011314;
+	b4.reflect[7] = 0.078592;
+	b4.reflect[8] = -0.040541;
 	b4.energy = -1;
 
 	version.subset[4] = b4;
  
-	b5.reflect[0] = 0.244728;
-	b5.reflect[1] = 0.373795;
-	b5.reflect[2] = -0.001695;
-	b5.reflect[3] = -0.093118;
-	b5.reflect[4] = -0.190415;
-	b5.reflect[5] = -0.191666;
-	b5.reflect[6] = 0.000097;
-	b5.reflect[7] = 0.180896;
-	b5.reflect[8] = 0.014818;
+	b5.reflect[0] = -0.791988;
+	b5.reflect[1] = 0.117415;
+	b5.reflect[2] = -0.206263;
+	b5.reflect[3] = 0.163796;
+	b5.reflect[4] = 0.099693;
+	b5.reflect[5] = 0.279304;
+	b5.reflect[6] = -0.092535;
+	b5.reflect[7] = 0.024752;
+	b5.reflect[8] = -0.169925;
 	b5.energy = -1;
 
 	version.subset[5] = b5;
  
-	b6.reflect[0] = 0.199548;
-	b6.reflect[1] = 0.221334;
-	b6.reflect[2] = -0.043672;
-	b6.reflect[3] = -0.167139;
-	b6.reflect[4] = -0.105934;
-	b6.reflect[5] = -0.109511;
-	b6.reflect[6] = 0.067827;
-	b6.reflect[7] = 0.090562;
-	b6.reflect[8] = 0.002528;
+	b6.reflect[0] = -0.500700;
+	b6.reflect[1] = 0.404752;
+	b6.reflect[2] = -0.402117;
+	b6.reflect[3] = 0.228285;
+	b6.reflect[4] = 0.162644;
+	b6.reflect[5] = 0.348037;
+	b6.reflect[6] = -0.340466;
+	b6.reflect[7] = 0.092367;
+	b6.reflect[8] = -0.126170;
 	b6.energy = -1;
 
 	version.subset[6] = b6;
  
-	b7.reflect[0] = -0.000255;
-	b7.reflect[1] = 0.188952;
-	b7.reflect[2] = -0.141758;
-	b7.reflect[3] = -0.056591;
-	b7.reflect[4] = 0.042079;
-	b7.reflect[5] = 0.084386;
-	b7.reflect[6] = 0.042143;
-	b7.reflect[7] = 0.093397;
-	b7.reflect[8] = -0.014967;
+	b7.reflect[0] = 0.175417;
+	b7.reflect[1] = -0.419667;
+	b7.reflect[2] = -0.314044;
+	b7.reflect[3] = 0.231870;
+	b7.reflect[4] = -0.016440;
+	b7.reflect[5] = 0.197787;
+	b7.reflect[6] = -0.048343;
+	b7.reflect[7] = 0.077230;
+	b7.reflect[8] = -0.100070;
 	b7.energy = -1;
 
 	version.subset[7] = b7;
  
-	b8.reflect[0] = -0.256837;
-	b8.reflect[1] = 0.287400;
-	b8.reflect[2] = -0.304777;
-	b8.reflect[3] = 0.248525;
-	b8.reflect[4] = 0.215827;
-	b8.reflect[5] = 0.327111;
-	b8.reflect[6] = -0.118230;
-	b8.reflect[7] = 0.101619;
-	b8.reflect[8] = -0.049666;
+	b8.reflect[0] = 0.310666;
+	b8.reflect[1] = -0.132332;
+	b8.reflect[2] = -0.308363;
+	b8.reflect[3] = 0.023795;
+	b8.reflect[4] = -0.115749;
+	b8.reflect[5] = 0.032968;
+	b8.reflect[6] = 0.006494;
+	b8.reflect[7] = 0.168475;
+	b8.reflect[8] = -0.027670;
 	b8.energy = -1;
 
 	version.subset[8] = b8;
  
-	b9.reflect[0] = -0.137227;
-	b9.reflect[1] = 0.135359;
-	b9.reflect[2] = -0.114844;
-	b9.reflect[3] = 0.102074;
-	b9.reflect[4] = 0.075456;
-	b9.reflect[5] = 0.146115;
-	b9.reflect[6] = -0.044686;
-	b9.reflect[7] = 0.021944;
-	b9.reflect[8] = -0.036559;
+	b9.reflect[0] = -0.155299;
+	b9.reflect[1] = -0.125334;
+	b9.reflect[2] = -0.106339;
+	b9.reflect[3] = 0.038752;
+	b9.reflect[4] = -0.040595;
+	b9.reflect[5] = 0.042317;
+	b9.reflect[6] = 0.016785;
+	b9.reflect[7] = 0.065665;
+	b9.reflect[8] = -0.049494;
+	b9.energy = -1;
+
+	version.subset[9] = b9;
+ 
+	b10.reflect[0] = -0.104693;
+	b10.reflect[1] = -0.074101;
+	b10.reflect[2] = -0.011520;
+	b10.reflect[3] = 0.028105;
+	b10.reflect[4] = -0.029034;
+	b10.reflect[5] = 0.049733;
+	b10.reflect[6] = -0.005853;
+	b10.reflect[7] = 0.034668;
+	b10.reflect[8] = -0.003464;
+	b10.energy = -1;
+
+	version.subset[10] = b10;
+ 
+	b11.reflect[0] = 0.000000;
+	b11.reflect[1] = 0.000000;
+	b11.reflect[2] = 0.000000;
+	b11.reflect[3] = 0.000000;
+	b11.reflect[4] = 0.000000;
+	b11.reflect[5] = 0.000000;
+	b11.reflect[6] = 0.000000;
+	b11.reflect[7] = 0.000000;
+	b11.reflect[8] = 0.000000;
+	b11.energy = -1;
+
+	version.subset[11] = b11;
+ 
+	word.versions[1] = version;
+ 
+	b0.reflect[0] = -0.438857;
+	b0.reflect[1] = 0.312405;
+	b0.reflect[2] = -0.658354;
+	b0.reflect[3] = 0.176027;
+	b0.reflect[4] = 0.211187;
+	b0.reflect[5] = 0.484180;
+	b0.reflect[6] = -0.253985;
+	b0.reflect[7] = -0.219672;
+	b0.reflect[8] = 0.036119;
+	b0.energy = -1;
+
+	version.subset[0] = b0;
+ 
+	b1.reflect[0] = -0.373971;
+	b1.reflect[1] = 0.357916;
+	b1.reflect[2] = -0.700736;
+	b1.reflect[3] = 0.154468;
+	b1.reflect[4] = 0.194593;
+	b1.reflect[5] = 0.512835;
+	b1.reflect[6] = -0.347722;
+	b1.reflect[7] = -0.160599;
+	b1.reflect[8] = -0.052780;
+	b1.energy = -1;
+
+	version.subset[1] = b1;
+ 
+	b2.reflect[0] = -0.386379;
+	b2.reflect[1] = 0.318159;
+	b2.reflect[2] = -0.636204;
+	b2.reflect[3] = 0.183676;
+	b2.reflect[4] = 0.165984;
+	b2.reflect[5] = 0.540373;
+	b2.reflect[6] = -0.416174;
+	b2.reflect[7] = -0.083715;
+	b2.reflect[8] = -0.144614;
+	b2.energy = -1;
+
+	version.subset[2] = b2;
+ 
+	b3.reflect[0] = -0.412357;
+	b3.reflect[1] = 0.334927;
+	b3.reflect[2] = -0.624806;
+	b3.reflect[3] = 0.253210;
+	b3.reflect[4] = 0.259952;
+	b3.reflect[5] = 0.422371;
+	b3.reflect[6] = -0.322407;
+	b3.reflect[7] = -0.130853;
+	b3.reflect[8] = -0.128657;
+	b3.energy = -1;
+
+	version.subset[3] = b3;
+ 
+	b4.reflect[0] = -0.416210;
+	b4.reflect[1] = 0.311489;
+	b4.reflect[2] = -0.596408;
+	b4.reflect[3] = 0.229918;
+	b4.reflect[4] = 0.218449;
+	b4.reflect[5] = 0.487482;
+	b4.reflect[6] = -0.419510;
+	b4.reflect[7] = -0.111368;
+	b4.reflect[8] = -0.127965;
+	b4.energy = -1;
+
+	version.subset[4] = b4;
+ 
+	b5.reflect[0] = -0.417781;
+	b5.reflect[1] = 0.303775;
+	b5.reflect[2] = -0.612252;
+	b5.reflect[3] = 0.216924;
+	b5.reflect[4] = 0.215030;
+	b5.reflect[5] = 0.490053;
+	b5.reflect[6] = -0.528011;
+	b5.reflect[7] = -0.028378;
+	b5.reflect[8] = -0.122781;
+	b5.energy = -1;
+
+	version.subset[5] = b5;
+ 
+	b6.reflect[0] = -0.454967;
+	b6.reflect[1] = 0.309643;
+	b6.reflect[2] = -0.621246;
+	b6.reflect[3] = 0.239788;
+	b6.reflect[4] = 0.286430;
+	b6.reflect[5] = 0.397817;
+	b6.reflect[6] = -0.505906;
+	b6.reflect[7] = -0.096073;
+	b6.reflect[8] = -0.070048;
+	b6.energy = -1;
+
+	version.subset[6] = b6;
+ 
+	b7.reflect[0] = -0.489213;
+	b7.reflect[1] = 0.334522;
+	b7.reflect[2] = -0.679205;
+	b7.reflect[3] = 0.279253;
+	b7.reflect[4] = 0.386817;
+	b7.reflect[5] = 0.289580;
+	b7.reflect[6] = -0.562655;
+	b7.reflect[7] = 0.081874;
+	b7.reflect[8] = -0.203758;
+	b7.energy = -1;
+
+	version.subset[7] = b7;
+ 
+	b8.reflect[0] = -0.625166;
+	b8.reflect[1] = 0.278571;
+	b8.reflect[2] = -0.617795;
+	b8.reflect[3] = 0.334587;
+	b8.reflect[4] = 0.286553;
+	b8.reflect[5] = 0.258734;
+	b8.reflect[6] = -0.491007;
+	b8.reflect[7] = 0.057466;
+	b8.reflect[8] = -0.164775;
+	b8.energy = -1;
+
+	version.subset[8] = b8;
+ 
+	b9.reflect[0] = -0.854147;
+	b9.reflect[1] = 0.307344;
+	b9.reflect[2] = -0.299294;
+	b9.reflect[3] = 0.410934;
+	b9.reflect[4] = -0.035888;
+	b9.reflect[5] = 0.262846;
+	b9.reflect[6] = -0.410184;
+	b9.reflect[7] = -0.085668;
+	b9.reflect[8] = 0.097895;
+	b9.energy = -1;
+
+	version.subset[9] = b9;
+ 
+	b10.reflect[0] = -0.918413;
+	b10.reflect[1] = 0.219374;
+	b10.reflect[2] = -0.345675;
+	b10.reflect[3] = 0.514118;
+	b10.reflect[4] = 0.159081;
+	b10.reflect[5] = 0.238849;
+	b10.reflect[6] = -0.272005;
+	b10.reflect[7] = 0.065897;
+	b10.reflect[8] = 0.284628;
+	b10.energy = -1;
+
+	version.subset[10] = b10;
+ 
+	b11.reflect[0] = 0;
+	b11.reflect[1] = 0;
+	b11.reflect[2] = 0;
+	b11.reflect[3] = 0;
+	b11.reflect[4] = 0;
+	b11.reflect[5] = 0;
+	b11.reflect[6] = 0;
+	b11.reflect[7] = 0;
+	b11.reflect[8] = 0;
+	b11.energy = -1;
+
+	version.subset[11] = b11;
+ 
+	word.versions[2] = version;
+ 
+	b0.reflect[0] = -0.585885;
+	b0.reflect[1] = 0.145169;
+	b0.reflect[2] = -0.374095;
+	b0.reflect[3] = 0.281513;
+	b0.reflect[4] = 0.135485;
+	b0.reflect[5] = 0.382126;
+	b0.reflect[6] = -0.416289;
+	b0.reflect[7] = 0.043738;
+	b0.reflect[8] = -0.035488;
+	b0.energy = -1;
+
+	version.subset[0] = b0;
+ 
+	b1.reflect[0] = -0.807842;
+	b1.reflect[1] = 0.203624;
+	b1.reflect[2] = -0.187283;
+	b1.reflect[3] = 0.203000;
+	b1.reflect[4] = 0.091768;
+	b1.reflect[5] = 0.448220;
+	b1.reflect[6] = -0.497950;
+	b1.reflect[7] = 0.105077;
+	b1.reflect[8] = -0.109958;
+	b1.energy = -1;
+
+	version.subset[1] = b1;
+ 
+	b2.reflect[0] = -0.929671;
+	b2.reflect[1] = 0.342077;
+	b2.reflect[2] = 0.003583;
+	b2.reflect[3] = 0.292306;
+	b2.reflect[4] = 0.108128;
+	b2.reflect[5] = 0.487648;
+	b2.reflect[6] = -0.441136;
+	b2.reflect[7] = 0.125973;
+	b2.reflect[8] = -0.129838;
+	b2.energy = -1;
+
+	version.subset[2] = b2;
+ 
+	b3.reflect[0] = -0.929201;
+	b3.reflect[1] = 0.169353;
+	b3.reflect[2] = -0.096162;
+	b3.reflect[3] = 0.362142;
+	b3.reflect[4] = 0.073296;
+	b3.reflect[5] = 0.219247;
+	b3.reflect[6] = -0.123173;
+	b3.reflect[7] = 0.174338;
+	b3.reflect[8] = 0.051760;
+	b3.energy = -1;
+
+	version.subset[3] = b3;
+ 
+	b4.reflect[0] = -0.752775;
+	b4.reflect[1] = -0.048065;
+	b4.reflect[2] = -0.129761;
+	b4.reflect[3] = 0.180384;
+	b4.reflect[4] = 0.079279;
+	b4.reflect[5] = 0.212445;
+	b4.reflect[6] = -0.071615;
+	b4.reflect[7] = 0.107047;
+	b4.reflect[8] = 0.025858;
+	b4.energy = -1;
+
+	version.subset[4] = b4;
+ 
+	b5.reflect[0] = -0.597071;
+	b5.reflect[1] = -0.011978;
+	b5.reflect[2] = -0.161635;
+	b5.reflect[3] = 0.147028;
+	b5.reflect[4] = 0.057860;
+	b5.reflect[5] = 0.281511;
+	b5.reflect[6] = -0.090587;
+	b5.reflect[7] = 0.046912;
+	b5.reflect[8] = 0.021487;
+	b5.energy = -1;
+
+	version.subset[5] = b5;
+ 
+	b6.reflect[0] = -0.412783;
+	b6.reflect[1] = 0.206587;
+	b6.reflect[2] = -0.166098;
+	b6.reflect[3] = 0.151337;
+	b6.reflect[4] = 0.079497;
+	b6.reflect[5] = 0.253791;
+	b6.reflect[6] = -0.213685;
+	b6.reflect[7] = 0.035664;
+	b6.reflect[8] = 0.015983;
+	b6.energy = -1;
+
+	version.subset[6] = b6;
+ 
+	b7.reflect[0] = -0.378910;
+	b7.reflect[1] = 0.039081;
+	b7.reflect[2] = 0.023861;
+	b7.reflect[3] = 0.141500;
+	b7.reflect[4] = -0.015169;
+	b7.reflect[5] = 0.193253;
+	b7.reflect[6] = 0.024273;
+	b7.reflect[7] = -0.101386;
+	b7.reflect[8] = -0.033391;
+	b7.energy = -1;
+
+	version.subset[7] = b7;
+ 
+	b8.reflect[0] = -0.199163;
+	b8.reflect[1] = -0.144391;
+	b8.reflect[2] = -0.137036;
+	b8.reflect[3] = 0.167726;
+	b8.reflect[4] = 0.102483;
+	b8.reflect[5] = 0.063813;
+	b8.reflect[6] = 0.055839;
+	b8.reflect[7] = 0.100641;
+	b8.reflect[8] = -0.056930;
+	b8.energy = -1;
+
+	version.subset[8] = b8;
+ 
+	b9.reflect[0] = -0.115567;
+	b9.reflect[1] = -0.029020;
+	b9.reflect[2] = -0.039450;
+	b9.reflect[3] = 0.016749;
+	b9.reflect[4] = -0.019004;
+	b9.reflect[5] = 0.031036;
+	b9.reflect[6] = 0.018385;
+	b9.reflect[7] = 0.013515;
+	b9.reflect[8] = -0.016222;
 	b9.energy = -1;
 
 	version.subset[9] = b9;
@@ -640,7 +1430,165 @@ void load_db(db_t* current_db){
 
 	version.subset[11] = b11;
  
-	word.versions[1] = version;
+	word.versions[3] = version;
+ 
+	b0.reflect[0] = -0.910388;
+	b0.reflect[1] = -0.070460;
+	b0.reflect[2] = -0.079497;
+	b0.reflect[3] = 0.217634;
+	b0.reflect[4] = -0.012568;
+	b0.reflect[5] = 0.120942;
+	b0.reflect[6] = -0.023883;
+	b0.reflect[7] = 0.117672;
+	b0.reflect[8] = -0.033200;
+	b0.energy = -1;
+
+	version.subset[0] = b0;
+ 
+	b1.reflect[0] = -0.910460;
+	b1.reflect[1] = -0.141941;
+	b1.reflect[2] = -0.117800;
+	b1.reflect[3] = 0.228664;
+	b1.reflect[4] = 0.014295;
+	b1.reflect[5] = 0.131723;
+	b1.reflect[6] = -0.046545;
+	b1.reflect[7] = 0.069847;
+	b1.reflect[8] = -0.048886;
+	b1.energy = -1;
+
+	version.subset[1] = b1;
+ 
+	b2.reflect[0] = -0.903022;
+	b2.reflect[1] = -0.182932;
+	b2.reflect[2] = -0.136157;
+	b2.reflect[3] = 0.244059;
+	b2.reflect[4] = 0.016903;
+	b2.reflect[5] = 0.155899;
+	b2.reflect[6] = -0.050407;
+	b2.reflect[7] = 0.126500;
+	b2.reflect[8] = -0.033287;
+	b2.energy = -1;
+
+	version.subset[2] = b2;
+ 
+	b3.reflect[0] = -0.907908;
+	b3.reflect[1] = -0.108178;
+	b3.reflect[2] = -0.117954;
+	b3.reflect[3] = 0.230972;
+	b3.reflect[4] = -0.003662;
+	b3.reflect[5] = 0.124774;
+	b3.reflect[6] = -0.020913;
+	b3.reflect[7] = 0.024994;
+	b3.reflect[8] = -0.024506;
+	b3.energy = -1;
+
+	version.subset[3] = b3;
+ 
+	b4.reflect[0] = -0.906546;
+	b4.reflect[1] = -0.049861;
+	b4.reflect[2] = -0.167145;
+	b4.reflect[3] = 0.263905;
+	b4.reflect[4] = 0.033078;
+	b4.reflect[5] = 0.111150;
+	b4.reflect[6] = -0.053599;
+	b4.reflect[7] = 0.085770;
+	b4.reflect[8] = -0.057703;
+	b4.energy = -1;
+
+	version.subset[4] = b4;
+ 
+	b5.reflect[0] = -0.917817;
+	b5.reflect[1] = -0.084138;
+	b5.reflect[2] = -0.041965;
+	b5.reflect[3] = 0.226707;
+	b5.reflect[4] = -0.004157;
+	b5.reflect[5] = 0.136615;
+	b5.reflect[6] = -0.009150;
+	b5.reflect[7] = 0.035240;
+	b5.reflect[8] = -0.066551;
+	b5.energy = -1;
+
+	version.subset[5] = b5;
+ 
+	b6.reflect[0] = -0.757992;
+	b6.reflect[1] = 0.129712;
+	b6.reflect[2] = -0.129536;
+	b6.reflect[3] = 0.306340;
+	b6.reflect[4] = 0.052572;
+	b6.reflect[5] = 0.247188;
+	b6.reflect[6] = -0.199419;
+	b6.reflect[7] = 0.030188;
+	b6.reflect[8] = 0.014408;
+	b6.energy = -1;
+
+	version.subset[6] = b6;
+ 
+	b7.reflect[0] = -0.783505;
+	b7.reflect[1] = 0.300750;
+	b7.reflect[2] = -0.257531;
+	b7.reflect[3] = 0.264795;
+	b7.reflect[4] = 0.189750;
+	b7.reflect[5] = 0.408040;
+	b7.reflect[6] = -0.417367;
+	b7.reflect[7] = 0.114651;
+	b7.reflect[8] = -0.076468;
+	b7.energy = -1;
+
+	version.subset[7] = b7;
+ 
+	b8.reflect[0] = -0.788794;
+	b8.reflect[1] = 0.307420;
+	b8.reflect[2] = -0.000583;
+	b8.reflect[3] = 0.242047;
+	b8.reflect[4] = 0.198084;
+	b8.reflect[5] = 0.284980;
+	b8.reflect[6] = -0.161704;
+	b8.reflect[7] = 0.068173;
+	b8.reflect[8] = -0.062731;
+	b8.energy = -1;
+
+	version.subset[8] = b8;
+ 
+	b9.reflect[0] = -0.690945;
+	b9.reflect[1] = -0.023418;
+	b9.reflect[2] = -0.042607;
+	b9.reflect[3] = 0.223324;
+	b9.reflect[4] = 0.054090;
+	b9.reflect[5] = 0.180226;
+	b9.reflect[6] = -0.021399;
+	b9.reflect[7] = 0.144754;
+	b9.reflect[8] = -0.020278;
+	b9.energy = -1;
+
+	version.subset[9] = b9;
+ 
+	b10.reflect[0] = -0.491638;
+	b10.reflect[1] = 0.193182;
+	b10.reflect[2] = -0.213024;
+	b10.reflect[3] = 0.152748;
+	b10.reflect[4] = 0.021321;
+	b10.reflect[5] = 0.357826;
+	b10.reflect[6] = -0.269260;
+	b10.reflect[7] = -0.045937;
+	b10.reflect[8] = 0.024448;
+	b10.energy = -1;
+
+	version.subset[10] = b10;
+ 
+	b11.reflect[0] = 0.247012;
+	b11.reflect[1] = -0.069802;
+	b11.reflect[2] = -0.473390;
+	b11.reflect[3] = 0.062979;
+	b11.reflect[4] = 0.012959;
+	b11.reflect[5] = 0.192871;
+	b11.reflect[6] = 0.020855;
+	b11.reflect[7] = 0.052575;
+	b11.reflect[8] = -0.063373;
+	b11.energy = -1;
+
+	version.subset[11] = b11;
+ 
+	word.versions[4] = version;
  
 	word.name = "left";
  
