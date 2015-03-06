@@ -20,11 +20,13 @@
 
 #define SUBSET_LENGTH	12 // number of subsets
 
-#define	N_VERSIONS 	5 // number of versions of a certain word
+#define	N_VERSIONS 	12 // number of versions of a certain word
 
 #define	N_WORDS		2 // number of different words we match against
 
+#define THRESHOLD_MIN	15.5
 
+#define THRESHOLD_MEAN	51.5
 
 typedef struct {
 	float energy; // summan av absolutbeloppen av amplituden
@@ -54,6 +56,7 @@ typedef struct
 {
 	char* name; //name of the word version 
 	float min_err; //smallest error for a version of a word
+	float mean_err;
 } result_t; // matching result for a db for a type of word
 
 

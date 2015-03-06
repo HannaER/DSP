@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include "constants.h"
 #include "matching.h"
+#include "framework.h"
 #include <limits.h>
 #include "load_db.h"
 #include <float.h>
-
-
-
-
+#include <string.h>
 
 static float real_abs(float value)
 {
@@ -17,18 +15,21 @@ static float real_abs(float value)
     return value;
 }
 
-void matching(db_t current_database, version_t input, result_t* result){
+void matching(db_t current_database, version_t input){
    
-	result_t r_temp;
+	result_t result[N_WORDS];
 	
-    r_temp.min_err = FLT_MAX;
     
+    float div = 1/((float)N_WORDS);
     
     float error = 0;
     int i, j, k, l;
     for(i = 0; i < N_WORDS; ++i){
-        word_t temp_word = current_database.words[i]; 
-        for(j = 0 ; j < N_VERSIONS; ++j){
+    	word_t temp_word = current_database.words[i];
+    	result[i].min_err = FLT_MAX;
+    	result[i].mean_err = 0;
+    	result[i].name = temp_word.name;
+        for(j = 0 ; j < N_VERSIONS; ++j){       	
             version_t temp_version = temp_word.versions[j];             
             for(k = 0; k < SUBSET_LENGTH; ++k){
             	block_t temp_block = temp_version.subset[k];
@@ -37,14 +38,54 @@ void matching(db_t current_database, version_t input, result_t* result){
             		error = error + real_abs(temp_block.reflect[l] - temp_input.reflect[l]);
            		}
       	   }
-      	   if (error < r_temp.min_err) {
-      	   		r_temp.min_err = error;
-				r_temp.name = temp_word.name;
+      	   if (error < result[i].min_err) {
+      	   		result[i].min_err = error;				
 	  	    }
-	  	    error = 0;
-     
+	  	    result[i].mean_err = result[i].mean_err + error*div;
+     		error = 0; 
         }
     }
-	*result = r_temp;
+	
+	validation(result);
 	return;
 }
+
+
+
+void validation(result_t* results){
+	
+	int i;
+	float temp_min = FLT_MAX;
+	float temp_mean = FLT_MAX;
+	char* name_min = "";
+	char* name_mean = "";
+	for(i = 0 ; i < N_WORDS; ++i){		
+		if(temp_min > results[i].min_err){
+			temp_min = results[i].min_err;
+			name_min = results[i].name;
+		}
+		if(temp_mean > results[i].mean_err){
+			temp_mean = results[i].mean_err;
+			name_mean = results[i].name;
+		}
+		
+	} 
+	if(strcmp(name_min, name_mean) == 0 && temp_min < THRESHOLD_MIN ){
+	printf("The matched word is \"%s\". Min-error: %f Mean-error: %f \n", name_min, temp_min, temp_mean);
+		if(strcmp(name_min, "right") == 0){
+			dsp_set_leds(7);
+		}
+		if(strcmp(name_min, "left") == 0){
+			dsp_set_leds(56);
+		}
+	}else {
+		printf("No matching word found, try again! Min-error: %f Mean-error: %f \n", temp_min, temp_mean);
+		dsp_set_leds(63);
+	}	
+	return;	
+}
+
+
+
+
+
