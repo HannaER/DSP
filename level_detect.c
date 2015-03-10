@@ -20,7 +20,7 @@ int level_detect(float* input){
 	float new_threshold = 0;
 	new_threshold = norm*0.05 + threshold*0.95;
 	
-	if (new_threshold > 2*threshold){ // 1.12
+	if (new_threshold > 1.12*threshold){ // 1.12
 		counter = counter + 9;
 		if(counter > 45) {
 		output = 1; // true			
@@ -29,7 +29,7 @@ int level_detect(float* input){
 		output = 0;	
 		}
 
-	} else if(new_threshold <= 0.9*threshold){
+	} else if(new_threshold <= 1.12*threshold){
 		counter = counter - 10;
 		put(input);	// add to ringbuffer
 		if (counter < 0){
