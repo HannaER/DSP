@@ -1,36 +1,13 @@
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="file:///C:/Program Files (x86)/Analog Devices/VisualDSP 5.1/System/linker_log.xsl"?>
-<DOCUMENT gen_time='Fri Mar 06 14:10:33 2015
+<DOCUMENT gen_time='Tue Mar 10 10:36:54 2015
 '>
-<MSG id='02F9F2F0' mid='li1040' type='Error' >
+<MSG id='02D34530' mid='li1040' type='Error' >
 <FILE><![CDATA[C:\Program Files (x86)\Analog Devices\VisualDSP 5.1\212xx/ldf/ADSP-21262.LDF]]></FILE>
 <FILE_LINE><![CDATA[166]]></FILE_LINE>
 <TEXT><![CDATA[Out of memory in output section 'seg_pmco' in processor 'p0'
-        Total of 0x8d5 word(s) were not mapped.]]></TEXT>
-<EXTENDED_INFO><![CDATA[0x4b words required for libio.dlb[fputc.doj](seg_pmco):0x0
-0x5 words required for libio.dlb[primiolib.doj](seg_pmco):0x0
-0x1b words required for libio.dlb[printf_32.doj](seg_pmco):0x0
-0xc0 words required for libio.dlb[xdo_output.doj](seg_pmco):0x0
-0x47 words required for libio.dlb[xflushwritebuf.doj](seg_pmco):0x0
-0x28 words required for libio.dlb[xlong_to_string.doj](seg_pmco):0x0
-0x3b words required for libio.dlb[xlonglong_to_string.doj](seg_pmco):0x0
-0x19 words required for libio.dlb[xpad.doj](seg_pmco):0x0
-0x2d words required for libio.dlb[xparse_field.doj](seg_pmco):0x0
-0xa2 words required for libio.dlb[xparse_format.doj](seg_pmco):0x0
-0x11 words required for libio.dlb[xprim.doj](seg_pmco):0x0
-0x13 words required for libio.dlb[xprim_close.doj](seg_pmco):0x0
-0x19 words required for libio.dlb[xprim_open.doj](seg_pmco):0x0
-0x17 words required for libio.dlb[xprim_read.doj](seg_pmco):0x0
-0x22 words required for libio.dlb[xprim_seek.doj](seg_pmco):0x0
-0x19 words required for libio.dlb[xprim_write2.doj](seg_pmco):0x0
-0x119 words required for libio.dlb[xprint_a_float_32.doj](seg_pmco):0x0
-0xeb words required for libio.dlb[xprint_fixed.doj](seg_pmco):0x0
-0x1db words required for libio.dlb[xprint_float_32.doj](seg_pmco):0x0
-0xe0 words required for libio.dlb[xprnt_32.doj](seg_pmco):0x0
-0x20 words required for libio.dlb[xput_string.doj](seg_pmco):0x0
-0x8 words required for libio.dlb[xtheputchar.doj](seg_pmco):0x0
-0x53 words required for libdsp26x.dlb[autocor.doj](seg_pmco):0x0
-0x28 words required for libdsp26x.dlb[biquad_vec.doj](seg_pmco):0x0
+        Total of 0x4f word(s) were not mapped.]]></TEXT>
+<EXTENDED_INFO><![CDATA[0x28 words required for libdsp26x.dlb[biquad_vec.doj](seg_pmco):0x0
 0x27 words required for libdsp26x.dlb[iir_vec.doj](seg_pmco):0x0
 ]]></EXTENDED_INFO>
 </MSG>
